@@ -1,47 +1,20 @@
 'use client'
 
 import {
-    Box,
-    Button,
-    Collapse,
-    Flex,
-    Icon,
-    IconButton,
-    Stack,
-    Text,
-    useBreakpointValue,
-    useColorModeValue,
-    useDisclosure
+  Box,
+  Button,
+  Collapse,
+  Flex,
+  HStack,
+  Icon,
+  Link,
+  Stack,
+  Text,
+  useDisclosure
 } from '@chakra-ui/react'
-import { MdSearch, MdSettings } from 'react-icons/md'
-
-interface NavItem {
-    label: string
-    subLabel?: string
-    children?: Array<NavItem>
-    href?: string
-  }
-  
-  const NAV_ITEMS: Array<NavItem> = [
-    {
-      label: 'Feature',
-      children: [],
-      href: '#Feature',
-    },
-    {
-      label: 'Pricing',
-      children: [],
-      href: '#Pricing',
-    },
-    {
-      label: 'Testimonial',
-      href: '#Testimonial',
-    },
-    {
-      label: 'Faq',
-      href: '#Faq',
-    },
-  ]
+import { MdSearch } from 'react-icons/md'
+import { NAVIGATION_ITEMS } from '../shared/constants'
+import { NavigationItem } from '../shared/navigation-item'
 
 export default function Navigation() {
   const { isOpen, onToggle } = useDisclosure()
@@ -49,60 +22,38 @@ export default function Navigation() {
   return (
     <Box>
       <Flex
-        bg={useColorModeValue('white', 'black')}
-        color={useColorModeValue('gray.600', 'white')}
-        minH={'60px'}
-        py={{ base: 2 }}
-        px={{ base: 4 }}
-        borderBottom={1}
-        borderStyle={'solid'}
-        borderColor={useColorModeValue('gray.200', 'gray.900')}
-        align={'center'}>
-        <Flex
-          flex={{ base: 1, md: 'auto' }}
-          ml={{ base: -2 }}
-          display={{ base: 'flex', md: 'none' }}>
-          <IconButton
-            onClick={onToggle}
-            icon={isOpen ? <Icon w={3} h={3} as={MdSettings} />: <Icon w={3} h={3} as={MdSettings} />}
-            variant={'ghost'}
-            aria-label={'Toggle Navigation'}
-          />
-        </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <Text
-            textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-            fontFamily={'heading'}
-            color={useColorModeValue('gray.800', 'white')}>
-            Logo
-          </Text>
+        w="100%"
+        px="6"
+        py="5"
+        align="center"
+        justify="space-between"
+      >
+      <Text textAlign={{ base: 'center', md: 'left' }} fontFamily={'heading'}>
+        Logo
+      </Text>
 
-          <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
-            <DesktopNav />
-          </Flex>
-        </Flex>
+        <HStack as="nav" spacing="5">
+          {NAVIGATION_ITEMS.map((item, i) => (
+            <Link key={i}>
+              <Button variant="nav"> {item.label} </Button>
+            </Link>
+          ))}
+        </HStack>
 
-        <Stack
-          flex={{ base: 1, md: 0 }}
-          justify={'flex-end'}
-          direction={'row'}
-          spacing={6}>
+        <HStack>
           <Button
-            as={'a'}
-            display={{ base: 'none', md: 'inline-flex' }}
-            fontSize={'sm'}
-            fontWeight={600}
-            color={'white'}
-            bg={'pink.400'}
-            href={'#'}
-            _hover={{
-              bg: 'pink.300',
-            }}>
-            Get Started
-          </Button>
-        </Stack>
+              as={'a'}
+              display={{ base: 'none', md: 'inline-flex' }}
+              fontSize={'sm'}
+              bg={'pink.400'}
+              href={'#'}
+              _hover={{
+                bg: 'pink.300',
+              }}>
+              Get Started
+            </Button>
+        </HStack>
       </Flex>
-
       <Collapse in={isOpen} animateOpacity>
         <MobileNav />
       </Collapse>
@@ -110,45 +61,59 @@ export default function Navigation() {
   )
 }
 
-const DesktopNav = () => {
-  const linkColor = useColorModeValue('gray.600', 'gray.200')
-  const linkHoverColor = useColorModeValue('gray.800', 'white')
+/**
+ * 
+ * @returns 
+ * import React from 'react';
+import { Drawer, DrawerBody, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerContent,
+  DrawerCloseButton, Flex, Text
+} from "@chakra-ui/react";
 
+
+export default function DrawerExample({
+const p = 15;
+  placement = "right",
+  width,
+  isOpen,
+  children,
+  onClose,
+  btnRef,
+  title = "Menu",
+  footer,
+}) {
   return (
-    <Stack direction={'row'} spacing={4}>
-      {NAV_ITEMS.map((navItem) => (
-        <Box key={navItem.label}>
-            <Box
-              as="a"
-              p={2}
-              href={navItem.href ?? '#'}
-              fontSize={'sm'}
-              fontWeight={500}
-              color={linkColor}
-              _hover={{
-                textDecoration: 'none',
-                color: linkHoverColor,
-              }}>
-              {navItem.label}
-            </Box>
-        </Box>
-      ))}
-    </Stack>
-  )
+    <Flex w={width}>
+      <Drawer
+        isOpen={isOpen}
+        placement={placement}
+        onClose={onClose}
+        finalFocusRef={btnRef}
+      >
+        <DrawerOverlay />
+        <DrawerContent alignItems="center">
+          <DrawerCloseButton alignSelf="end" mx={p} my={p} />
+          <DrawerHeader my={p}>
+            <Text as="p"> {title} </Text>
+          </DrawerHeader>
+          <DrawerBody>{children}</DrawerBody>
+          <DrawerFooter>{footer}</DrawerFooter>
+        </DrawerContent>
+      </Drawer>
+    </Flex>
+  );
 }
-
-
+ */
 const MobileNav = () => {
   return (
-    <Stack bg={useColorModeValue('white', 'gray.800')} p={4} display={{ md: 'none' }}>
-      {NAV_ITEMS.map((navItem) => (
+    <Stack p={4} display={{ md: 'none' }}>
+      {NAVIGATION_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
     </Stack>
   )
 }
 
-const MobileNavItem = ({ label, children, href }: NavItem) => {
+const MobileNavItem = ({ label, children, href }: NavigationItem) => {
   const { isOpen, onToggle } = useDisclosure()
 
   return (
@@ -162,7 +127,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         _hover={{
           textDecoration: 'none',
         }}>
-        <Text fontWeight={600} color={useColorModeValue('gray.600', 'gray.200')}>
+        <Text>
           {label}
         </Text>
         {children && (
@@ -182,7 +147,6 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           pl={4}
           borderLeft={1}
           borderStyle={'solid'}
-          borderColor={useColorModeValue('gray.200', 'gray.700')}
           align={'start'}>
           {children &&
             children.map((child) => (
