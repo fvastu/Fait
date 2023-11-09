@@ -30,6 +30,8 @@
     "@chakra-ui/system": "^2.3.3",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@fontsource/montserrat": "^5.0.15",
+    "@fontsource/raleway": "^5.0.15",
     "framer-motion": "^6.5.1",
     "next": "^14.0.1",
     "react": "^18.2.0",

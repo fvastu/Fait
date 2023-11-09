@@ -1,5 +1,12 @@
 import { extendTheme } from "@chakra-ui/react";
 import { StyleFunctionProps } from "@chakra-ui/theme-tools";
+import "@fontsource/montserrat/100.css";
+import "@fontsource/montserrat/200.css";
+import "@fontsource/montserrat/300.css";
+import "@fontsource/montserrat/400.css";
+import "@fontsource/montserrat/500.css";
+import "@fontsource/montserrat/600.css";
+import "@fontsource/montserrat/700.css";
 
 const darkTheme = {
   accentColor: "#3d7ab2",
@@ -21,6 +28,10 @@ const customTheme = extendTheme({
         default: lightTheme.secondaryColor,
         _dark: darkTheme.secondaryColor,
       },
+      accent: {
+        default: lightTheme.accentColor,
+        _dark: darkTheme.accentColor,
+      },
     },
   },
   styles: {
@@ -36,6 +47,10 @@ const customTheme = extendTheme({
         borderColor: "",
       },
     }),
+  },
+  fonts: {
+    heading: `'montserrat', sans-serif`,
+    body: `'montserrat', sans-serif`,
   },
   components: {
     Text: {
