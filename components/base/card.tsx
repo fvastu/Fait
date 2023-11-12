@@ -1,49 +1,23 @@
-import {
-  Box,
-  CardBody,
-  CardHeader,
-  Card as ChakraCard,
-  Heading,
-  Stack,
-  StackDivider,
-  Text,
-} from "@chakra-ui/react";
+import { Card as ChakraCard } from "@chakra-ui/react";
 
-export function Card() {
+export function Card({ children, isActive = false }: any) {
+  const gradient = isActive
+    ? "bg-gradient-to-r from-blue-500 via-blue-900 to-black"
+    : "bg-gradient-to-r from-gray-800 to-black";
   return (
-    <ChakraCard>
-      <CardHeader>
-        <Heading size="md">Client Report</Heading>
-      </CardHeader>
-
-      <CardBody>
-        <Stack divider={<StackDivider />} spacing="4">
-          <Box>
-            <Heading size="xs" textTransform="uppercase">
-              Summary
-            </Heading>
-            <Text pt="2" fontSize="sm">
-              View a summary of all your clients over the last month.
-            </Text>
-          </Box>
-          <Box>
-            <Heading size="xs" textTransform="uppercase">
-              Overview
-            </Heading>
-            <Text pt="2" fontSize="sm">
-              Check out the overview of your clients.
-            </Text>
-          </Box>
-          <Box>
-            <Heading size="xs" textTransform="uppercase">
-              Analysis
-            </Heading>
-            <Text pt="2" fontSize="sm">
-              See a detailed analysis of all your business clients.
-            </Text>
-          </Box>
-        </Stack>
-      </CardBody>
+    <ChakraCard
+      width="100%"
+      padding="2rem 1rem"
+      flexDirection="column"
+      alignItems="center"
+      borderStyle="solid"
+      borderWidth="1px"
+      borderColor="#333"
+      color="white"
+      borderRadius="10px"
+      className={gradient}
+    >
+      {children}
     </ChakraCard>
   );
 }

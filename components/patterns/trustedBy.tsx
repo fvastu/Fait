@@ -1,48 +1,29 @@
-import { Center, Text, VStack, Wrap, WrapItem } from "@chakra-ui/react";
+import { Stack, Text, VStack } from "@chakra-ui/react";
 import { CompanyLogo } from "../base/assets-wrapper";
 
 export const TrustedBy = () => {
   return (
     <section>
-      <VStack spacing={10}>
+      <VStack w={"6xl"}>
         <Text fontSize={"xl"}>Trusted By</Text>
-        <Wrap spacing={10}>
-          <WrapItem>
-            <Center w="250px">
-              <CompanyLogo w="full"></CompanyLogo>
-            </Center>
-          </WrapItem>
-          <WrapItem>
-            <Center w="250px">
-              <CompanyLogo w="full"></CompanyLogo>
-            </Center>
-          </WrapItem>
-          <WrapItem>
-            <Center w="250px">
-              <CompanyLogo w="full"></CompanyLogo>
-            </Center>
-          </WrapItem>
-          <WrapItem>
-            <Center w="250px">
-              <CompanyLogo w="full"></CompanyLogo>
-            </Center>
-          </WrapItem>
-          <WrapItem>
-            <Center marginLeft={"20"} w="250px">
-              <CompanyLogo w="full"></CompanyLogo>
-            </Center>
-          </WrapItem>
-          <WrapItem>
-            <Center w="250px">
-              <CompanyLogo w="full"></CompanyLogo>
-            </Center>
-          </WrapItem>
-          <WrapItem>
-            <Center w="250px">
-              <CompanyLogo w="full"></CompanyLogo>
-            </Center>
-          </WrapItem>
-        </Wrap>
+        <Stack
+          direction="row"
+          spacing="2rem"
+          justify="center"
+          align="center"
+          wrap="wrap"
+          gridColumnGap="2rem"
+          gridRowGap="2rem"
+          gridTemplateRows="auto"
+        >
+          <CompanyLogo w="200px"></CompanyLogo>
+          <CompanyLogo w="200px"></CompanyLogo>
+          <CompanyLogo w="200px"></CompanyLogo>
+          <CompanyLogo w="200px"></CompanyLogo>
+          <CompanyLogo w="200px"></CompanyLogo>
+          <CompanyLogo w="200px"></CompanyLogo>
+          <CompanyLogo w="200px"></CompanyLogo>
+        </Stack>
       </VStack>
     </section>
   );

@@ -10,8 +10,8 @@ import {
 export default function Hero() {
   return (
     <section>
-      <HStack paddingTop={100}>
-        <VStack w={"60%"}>
+      <HStack paddingLeft={200} paddingTop={100}>
+        <VStack alignItems={"center"} w={"40%"}>
           <VStack
             spacing={-6}
             alignItems={"start"}
@@ -36,10 +36,15 @@ export default function Hero() {
             <Button backgroundColor={"accent"}>Try</Button>
           </HStack>
         </VStack>
-        <Center w={"50%"} position={"relative"}>
-          <HeroImage boxSize="32vh" objectFit="cover" h={"full"}></HeroImage>
+        <Center overflow={"hidden"} w={"60%"} h="full" position={"relative"}>
+          <HeroImage
+            marginLeft={-150}
+            boxSize="35vh"
+            objectFit="contain"
+            h="full"
+          ></HeroImage>
           <HorizontalPattern
-            right={0}
+            right={270}
             top={0}
             position={"absolute"}
             height="12vh"
@@ -47,7 +52,7 @@ export default function Hero() {
             objectFit={"cover"}
           />
           <HorizontalPattern
-            left={0}
+            left={120}
             bottom={0}
             position={"absolute"}
             height="12vh"
@@ -55,10 +60,10 @@ export default function Hero() {
             objectFit={"cover"}
           />
           <ShapePattern
-            left={200}
-            bottom={-400}
+            left={300}
+            bottom={-150}
             position={"absolute"}
-            height="150%"
+            height="100%"
             zIndex={"hide"}
             objectFit={"cover"}
           />
