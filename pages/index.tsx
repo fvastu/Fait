@@ -4,6 +4,7 @@ import Hero from "../components/patterns/hero";
 import Navigation from "../components/patterns/navbar";
 import { Pricing } from "../components/patterns/pricing";
 import { TrustedBy } from "../components/patterns/trustedBy";
+import { UserFollowing } from "../components/patterns/user-following";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         <Hero />
         <TrustedBy />
         <Features />
+        <UserFollowing />
         <Pricing />
       </Layout>
     </>

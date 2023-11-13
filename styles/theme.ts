@@ -8,13 +8,13 @@ import "@fontsource/montserrat/500.css";
 import "@fontsource/montserrat/600.css";
 import "@fontsource/montserrat/700.css";
 
-const darkTheme = {
+export const darkTheme = {
   accentColor: "#3d7ab2",
   primaryColor: "#000000",
   secondaryColor: "#fff",
 };
 
-const lightTheme = {
+export const lightTheme = {
   accentColor: "#3d7ab2",
   primaryColor: "#000000",
   secondaryColor: "#fff",

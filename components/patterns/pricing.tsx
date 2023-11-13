@@ -1,4 +1,6 @@
 import {
+  Box,
+  Button,
   HStack,
   List,
   ListIcon,
@@ -21,7 +23,7 @@ const Cards = [
     id: 1,
     name: "Annual Plan",
     price: "$159/yr",
-    description: "Start with StayFit Today",
+    description: "80% off | Popular",
     features: [
       "consectetur adipiscing elit",
       "consectetur adipiscing elit",
@@ -33,7 +35,7 @@ const Cards = [
     id: 2,
     name: "Monthly Plan",
     price: "$18/mo",
-    description: "Start with StayFit Today",
+    description: "or 216$ yearly",
     features: [
       "Lorem ipsum dolor",
       "Lorem ipsum dolor",
@@ -53,25 +55,28 @@ export const Pricing = () => {
           <Text fontSize={"4xl"}>Pricing plan</Text>
           <Text fontSize={"lg"}>Find the best plan that works for you</Text>
         </VStack>
-        <HStack w="full" alignItems={"stretch"} textAlign="center" spacing={10}>
+        <HStack w="full" alignItems="stretch" textAlign="center" spacing={10}>
           {Cards.map((card, index) => (
-            <Card isActive={index === 1} key={card.id}>
-              <VStack>
-                <Text fontSize={"xl"}>{card.name}</Text>
-                <Text fontSize={"4xl"} fontWeight={"bold"}>
-                  {card.price}
-                </Text>
-                <Text fontSize={"lg"}>{card.description}</Text>
-                <List spacing={3}>
-                  {card.features.map((feature) => {
-                    return (
-                      <ListItem key={feature}>
-                        <ListIcon as={AiOutlineCheck} color="white" />
-                        {feature}
-                      </ListItem>
-                    );
-                  })}
+            <Card key={card.id} isActive={index === 1}>
+              <VStack w="full">
+                <Box height="6rem">
+                  <Text fontSize="xl">{card.name}</Text>
+                  <Text fontSize="4xl" fontWeight="bold">
+                    {card.price}
+                  </Text>
+                  <Text fontSize="sm">{card.description}</Text>
+                </Box>
+                <List height="15rem" paddingTop={35} spacing={2}>
+                  {card.features.map((feature) => (
+                    <ListItem key={feature}>
+                      <ListIcon as={AiOutlineCheck} color="white" />
+                      {feature}
+                    </ListItem>
+                  ))}
                 </List>
+                <Button w="full" height="3rem" backgroundColor="accent">
+                  Get started
+                </Button>
               </VStack>
             </Card>
           ))}
