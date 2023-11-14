@@ -1,6 +1,6 @@
 import { Button, HStack, Text, VStack } from "@chakra-ui/react";
 
-export const Footer = () => {
+export const DownloadFromStore = () => {
   return (
     <section>
       <VStack w={"2xl"}>

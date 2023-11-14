@@ -27,3 +27,7 @@ export function ProgressIcon(props: ChakraProps) {
 export function WeightIcon(props: ChakraProps) {
   return <Image {...props} src="assets/icons/weight.png"></Image>;
 }
+
+export function StarIcon(props: ChakraProps) {
+  return <Image {...props} src="assets/icons/star.png"></Image>;
+}

@@ -1,9 +1,10 @@
 import { Card as ChakraCard } from "@chakra-ui/react";
+import { readColorFromTheme } from "../../shared/read-from-theme";
 
 export function Card({ children, isActive = false }: any) {
-  const accentColor = "3d7ab2";
+  const accentColor = readColorFromTheme("accent").default;
   const gradient = isActive
-    ? `bg-gradient-to-r from-${accentColor} via-${accentColor} to-black`
+    ? `bg-gradient-to-r from-[${accentColor}] to-black`
     : "bg-gradient-to-r from-gray-800 to-black";
   return (
     <ChakraCard

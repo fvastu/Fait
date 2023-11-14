@@ -53,7 +53,9 @@ export const Pricing = () => {
       <VStack spacing={20} w={"6xl"}>
         <VStack>
           <Text fontSize={"4xl"}>Pricing plan</Text>
-          <Text fontSize={"lg"}>Find the best plan that works for you</Text>
+          <Text fontWeight={"regular"} fontSize={"lg"}>
+            Find the best plan that works for you
+          </Text>
         </VStack>
         <HStack w="full" alignItems="stretch" textAlign="center" spacing={10}>
           {Cards.map((card, index) => (

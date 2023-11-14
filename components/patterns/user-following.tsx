@@ -6,7 +6,7 @@ export const UserFollowing = () => {
       <VStack>
         <Text textAlign={"center"} fontSize={"5xl"}>
           Trusted by
-          <Text as="span" color="accent">
+          <Text fontWeight={"regular"} as="span" color="accent">
             {" Millions "}
           </Text>
           of User <br />
