@@ -1,24 +1,17 @@
-import { Button, HStack, Text, VStack } from "@chakra-ui/react";
+import { Text, VStack } from "@chakra-ui/react";
 
 export const JoinNewsletter = () => {
   return (
     <section>
       <VStack w={"2xl"}>
         <VStack textAlign={"center"}>
-          <Text fontSize={"5xl"}>
-            Take your Fitness to the Next Level with
-            <Text fontWeight={"regular"} as="span" color="accent">
-              {" Fait "}
-            </Text>
+          <Text fontSize={"xl"}>
+            Join our newsletter to stay up to date on features and releases.
           </Text>
-          <Text marginBottom={10} fontWeight={"regular"} fontSize={"lg"}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            varius enim in eros elementum tristique.
+          <Text fontSize={"sm"}>
+            By subscribing you agree to with our Privacy Policy and provide
+            consent to receive updates from our company.
           </Text>
-          <HStack>
-            <Button backgroundColor={"accent"}>Download on App Store</Button>
-            <Button backgroundColor={"accent"}>Download on Google Play</Button>
-          </HStack>
         </VStack>
       </VStack>
     </section>

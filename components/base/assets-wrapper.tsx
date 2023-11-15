@@ -31,3 +31,11 @@ export function WeightIcon(props: ChakraProps) {
 export function StarIcon(props: ChakraProps) {
   return <Image {...props} src="assets/icons/star.png"></Image>;
 }
+
+export function GooglePlayStore(props: ChakraProps) {
+  return <Image {...props} src="assets/images/googlePlayStore.png"></Image>;
+}
+
+export function AppleAppStore(props: ChakraProps) {
+  return <Image {...props} src="assets/images/appleAppStore.png"></Image>;
+}

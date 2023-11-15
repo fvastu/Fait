@@ -1,11 +1,12 @@
 "use client";
 
-import { Button, Center, HStack, Text, VStack } from "@chakra-ui/react";
+import { Center, HStack, Text, VStack } from "@chakra-ui/react";
 import {
   HeroImage,
   HorizontalPattern,
   ShapePattern,
 } from "../base/assets-wrapper";
+import { StoreButton } from "../base/store-button";
 
 export default function Hero() {
   return (
@@ -32,8 +33,8 @@ export default function Hero() {
             anywhere, any age, any fitness level.
           </Text>
           <HStack alignItems={"start"} w="full">
-            <Button backgroundColor={"accent"}>Install</Button>
-            <Button backgroundColor={"accent"}>Try</Button>
+            <StoreButton type="Apple" />
+            <StoreButton type="Google" />
           </HStack>
         </VStack>
         <Center overflow={"hidden"} w={"60%"} h="full" position={"relative"}>

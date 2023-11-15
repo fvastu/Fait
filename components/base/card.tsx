@@ -8,6 +8,7 @@ export function Card({ children, isActive = false }: any) {
     : "bg-gradient-to-r from-gray-800 to-black";
   return (
     <ChakraCard
+      as={"article"}
       width="100%"
       padding="2rem 2rem"
       flexDirection="column"
