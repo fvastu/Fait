@@ -9,7 +9,6 @@ interface StoreButtonProps {
 
 export const StoreButton: React.FC<StoreButtonProps> = ({ type }) => {
   const accentColor = readColorFromTheme("accent").default;
-  console.log("accentColor");
   const storeUrl =
     type === "Google"
       ? "https://play.google.com/store"

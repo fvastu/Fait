@@ -2,50 +2,52 @@ import { HStack, Text, VStack } from "@chakra-ui/react";
 import { HealthIcon, ProgressIcon, WeightIcon } from "../base/assets-wrapper";
 import { Card } from "../base/card";
 
-const Cards = [
+const featureData = [
   {
     icon: <ProgressIcon />,
-    title: "Monitor your progress",
+    title: "Personalized Progress Tracking",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
+      "Track your fitness journey with our advanced progress monitoring tools. Set goals, measure achievements, and stay motivated on your path to a healthier lifestyle.",
   },
   {
     icon: <WeightIcon />,
-    title: "Workout Gears",
+    title: "Premium Workout Gear",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
+      "Elevate your workouts with our high-quality and comfortable workout gear. From breathable activewear to durable accessories, we provide everything you need for a stylish and effective exercise routine.",
   },
   {
     icon: <HealthIcon />,
-    title: "Custom Meal Plan",
+    title: "Tailored Custom Meal Plans",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
+      "Achieve your nutritional goals with our customized meal plans. Our experts design plans that fit your dietary preferences, ensuring a well-balanced and delicious approach to fueling your body.",
   },
 ];
 
-export const Features = () => {
-  return (
-    <section>
-      <VStack spacing={20} w={"6xl"}>
-        <Text alignSelf={"start"} fontSize={"4xl"}>
-          Fitness Made Simple
-        </Text>
-        <HStack textAlign="center" spacing={10}>
-          {Cards.map((card) => (
-            <Card key={card.title}>
-              <VStack>
-                {card.icon}
-                <Text fontSize={"2xl"}>Monitor your progress</Text>
-                <Text fontWeight={"regular"} fontSize={"sm"}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse varius enim in eros elementum tristique. Duis
-                  cursus, mi quis viverra ornare, eros dolor interdum nulla.
-                </Text>
-              </VStack>
-            </Card>
-          ))}
-        </HStack>
-      </VStack>
-    </section>
-  );
-};
+type FeatureData = typeof featureData[0];
+
+const FeatureCard: React.FC<FeatureData> = ({ icon, title, content }) => (
+  <Card key={title}>
+    <VStack>
+      {icon}
+      <Text fontSize="2xl">{title}</Text>
+      <Text fontWeight="regular" fontSize="sm">
+        {content}
+      </Text>
+    </VStack>
+  </Card>
+);
+
+export const Features: React.FC = () => (
+  <section>
+    <VStack spacing={20} w="6xl">
+      <Text alignSelf="start" fontSize="4xl">
+        Fitness Made Simple
+      </Text>
+      <HStack textAlign="center" spacing={10}>
+        {featureData.map((feature) => (
+          <FeatureCard key={feature.title} {...feature} />
+        ))}
+      </HStack>
+    </VStack>
+  </section>
+);

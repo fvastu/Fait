@@ -9,70 +9,95 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
-const FaqItems = [
-  {
-    question: "How to download the app",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.",
-  },
-  {
-    question: "How do I connect to Smart Watch?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.",
-  },
-  {
-    question: "What’s difference with Free and Annual Plan",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.",
-  },
-  {
-    question: "Can I cancel the StayFit Subscription",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.",
-  },
-  {
-    question: "How do I see new classes being added in Stayfit App ?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.",
-  },
-];
+interface FaqItemProps {
+  question: string;
+  answer: string;
+}
 
-export const Faq = () => {
+interface FaqSectionProps {
+  title: string;
+  description: string;
+  faqItems: FaqItemProps[];
+}
+
+const FaqItem: React.FC<FaqItemProps> = ({ question, answer }) => {
+  return (
+    <AccordionItem>
+      <h2>
+        <AccordionButton padding={5}>
+          <Box fontWeight={"bold"} as="span" flex="1" textAlign="left">
+            {question}
+          </Box>
+          <AccordionIcon color={"accent"} />
+        </AccordionButton>
+      </h2>
+      <AccordionPanel pb={4}>{answer}</AccordionPanel>
+    </AccordionItem>
+  );
+};
+
+const FaqSection: React.FC<FaqSectionProps> = ({
+  title,
+  description,
+  faqItems,
+}) => {
   return (
     <section>
       <VStack spacing={20} w={"2xl"}>
         <VStack textAlign={"center"}>
-          <Text fontSize={"4xl"}>Top FAQs</Text>
+          <Text fontSize={"4xl"}>{title}</Text>
           <Text fontWeight={"regular"} fontSize={"lg"}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            varius enim in eros elementum tristique.
+            {description}
           </Text>
         </VStack>
         <VStack w="full">
           <Accordion w="full" allowToggle>
-            {FaqItems.map((item) => {
-              return (
-                <AccordionItem>
-                  <h2>
-                    <AccordionButton padding={5}>
-                      <Box
-                        fontWeight={"bold"}
-                        as="span"
-                        flex="1"
-                        textAlign="left"
-                      >
-                        {item.question}
-                      </Box>
-                      <AccordionIcon />
-                    </AccordionButton>
-                  </h2>
-                  <AccordionPanel pb={4}>{item.answer}</AccordionPanel>
-                </AccordionItem>
-              );
-            })}
+            {faqItems.map((item, index) => (
+              <FaqItem key={index} {...item} />
+            ))}
           </Accordion>
         </VStack>
       </VStack>
     </section>
   );
 };
+
+const Faq: React.FC = () => {
+  const faqItems: FaqItemProps[] = [
+    {
+      question: "How to download the app",
+      answer:
+        "To download the app, visit the App Store or Google Play Store on your mobile device and search for our app. Click on the 'Download' button and follow the on-screen instructions to install the app.",
+    },
+    {
+      question: "How do I connect to Smart Watch?",
+      answer:
+        "To connect your Smart Watch, go to the app's settings, select 'Device Connection,' and follow the prompts to pair your Smart Watch with the app. Make sure Bluetooth is enabled on both your mobile device and Smart Watch.",
+    },
+    {
+      question: "What’s the difference with Free and Annual Plan",
+      answer:
+        "The Free Plan provides basic access to the app's features, while the Annual Plan offers premium features, ad-free experience, and additional content. Upgrade to the Annual Plan for a more enhanced and enjoyable experience.",
+    },
+    {
+      question: "Can I cancel the Fait Subscription",
+      answer:
+        "Yes, you can cancel your Fait subscription at any time. Visit your account settings, go to the 'Subscription' section, and follow the cancellation instructions. Keep in mind that canceling your subscription will result in the loss of premium features.",
+    },
+    {
+      question: "How do I see new classes being added in Fait App?",
+      answer:
+        "Stay updated on new classes by regularly checking the app's 'New Classes' section. You'll find the latest additions to our fitness classes, and you can explore and join them to diversify your workout routine.",
+    },
+  ];
+
+  return (
+    <FaqSection
+      title="Top FAQs"
+      description="Explore our frequently asked questions to find answers to common queries about our app and services."
+      faqItems={faqItems}
+    />
+  );
+};
+
+export default Faq;

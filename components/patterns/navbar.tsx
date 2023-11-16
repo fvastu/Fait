@@ -2,7 +2,7 @@
 
 import {
   Box,
-  Button,
+  Button as ChakraButton,
   Collapse,
   Flex,
   HStack,
@@ -15,6 +15,7 @@ import {
 import { MdSearch } from "react-icons/md";
 import { NAVIGATION_ITEMS } from "../../shared/constants";
 import { NavigationItem } from "../../shared/navigation-item";
+import Button from "../base/button";
 
 export default function Navigation() {
   const { isOpen, onToggle } = useDisclosure();
@@ -29,24 +30,13 @@ export default function Navigation() {
         <HStack as="nav" spacing="5">
           {NAVIGATION_ITEMS.map((item, i) => (
             <Link key={i}>
-              <Button variant="nav"> {item.label} </Button>
+              <ChakraButton variant="nav"> {item.label} </ChakraButton>
             </Link>
           ))}
         </HStack>
 
         <HStack>
-          <Button
-            as={"a"}
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"sm"}
-            bg={"pink.400"}
-            href={"#"}
-            _hover={{
-              bg: "pink.300",
-            }}
-          >
-            Get Started
-          </Button>
+          <Button>Get Started</Button>
         </HStack>
       </Flex>
       <Collapse in={isOpen} animateOpacity>

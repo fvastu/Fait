@@ -1,7 +1,7 @@
 import { Layout } from "../components/layout";
 import { Contact } from "../components/patterns/contact";
 import { DownloadFromStore } from "../components/patterns/download-from-store";
-import { Faq } from "../components/patterns/faq";
+import Faq from "../components/patterns/faq";
 import { Features } from "../components/patterns/features";
 import Footer from "../components/patterns/footer";
 import Hero from "../components/patterns/hero";

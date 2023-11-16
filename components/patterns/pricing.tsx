@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   HStack,
   List,
   ListIcon,
@@ -9,14 +8,23 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { AiOutlineCheck } from "react-icons/ai";
+import Button from "../base/button";
 import { Card } from "../base/card";
 
-const Cards = [
+type CardData = {
+  id: number;
+  name: string;
+  price: string;
+  description: string;
+  features: string[];
+};
+
+const Cards: CardData[] = [
   {
     id: 0,
     name: "Basic Plan",
     price: "Free",
-    description: "Start with StayFit Today",
+    description: "Start with Fait Today",
     features: ["Lorem ipsum dolor", "Lorem ipsum dolor", "Lorem ipsum dolor"],
   },
   {
@@ -24,28 +32,44 @@ const Cards = [
     name: "Annual Plan",
     price: "$159/yr",
     description: "80% off | Popular",
-    features: [
-      "consectetur adipiscing elit",
-      "consectetur adipiscing elit",
-      "consectetur adipiscing elit",
-      "consectetur adipiscing elit",
-    ],
+    features: Array(4).fill("consectetur adipiscing elit"),
   },
   {
     id: 2,
     name: "Monthly Plan",
     price: "$18/mo",
     description: "or 216$ yearly",
-    features: [
-      "Lorem ipsum dolor",
-      "Lorem ipsum dolor",
-      "Lorem ipsum dolor",
-      "Lorem ipsum dolor",
-      "Lorem ipsum dolor",
-      "Lorem ipsum dolor",
-    ],
+    features: Array(6).fill("Lorem ipsum dolor"),
   },
 ];
+
+const PricingCard: React.FC<{ card: CardData; isActive: boolean }> = ({
+  card,
+  isActive,
+}) => (
+  <Card key={card.id} isActive={isActive}>
+    <VStack w="full">
+      <Box height="6rem">
+        <Text fontSize="xl">{card.name}</Text>
+        <Text fontSize="4xl" fontWeight="bold">
+          {card.price}
+        </Text>
+        <Text fontSize="sm">{card.description}</Text>
+      </Box>
+      <List height="15rem" paddingTop={35} spacing={2}>
+        {card.features.map((feature: any, index: number) => (
+          <ListItem key={index}>
+            <ListIcon as={AiOutlineCheck} color="white" />
+            {feature}
+          </ListItem>
+        ))}
+      </List>
+      <Button w="full" height="3rem">
+        Get started
+      </Button>
+    </VStack>
+  </Card>
+);
 
 export const Pricing = () => {
   return (
@@ -59,28 +83,7 @@ export const Pricing = () => {
         </VStack>
         <HStack w="full" alignItems="stretch" textAlign="center" spacing={10}>
           {Cards.map((card, index) => (
-            <Card key={card.id} isActive={index === 1}>
-              <VStack w="full">
-                <Box height="6rem">
-                  <Text fontSize="xl">{card.name}</Text>
-                  <Text fontSize="4xl" fontWeight="bold">
-                    {card.price}
-                  </Text>
-                  <Text fontSize="sm">{card.description}</Text>
-                </Box>
-                <List height="15rem" paddingTop={35} spacing={2}>
-                  {card.features.map((feature) => (
-                    <ListItem key={feature}>
-                      <ListIcon as={AiOutlineCheck} color="white" />
-                      {feature}
-                    </ListItem>
-                  ))}
-                </List>
-                <Button w="full" height="3rem" backgroundColor="accent">
-                  Get started
-                </Button>
-              </VStack>
-            </Card>
+            <PricingCard key={card.id} card={card} isActive={index === 1} />
           ))}
         </HStack>
       </VStack>

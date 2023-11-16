@@ -1,14 +1,19 @@
 import { Card as ChakraCard } from "@chakra-ui/react";
 import { readColorFromTheme } from "../../shared/read-from-theme";
 
-export function Card({ children, isActive = false }: any) {
-  const accentColor = readColorFromTheme("accent").default;
-  const gradient = isActive
-    ? `bg-gradient-to-r from-[${accentColor}] to-black`
-    : "bg-gradient-to-r from-gray-800 to-black";
+interface CardProps {
+  children: React.ReactNode;
+  isActive?: boolean;
+}
+
+const accentColor = readColorFromTheme("accent").default;
+const activeGradient = `bg-gradient-to-r from-[${accentColor}] to-black`;
+const notActiveGradient = "bg-gradient-to-r from-gray-800 to-black";
+
+export function Card({ children, isActive = false }: CardProps) {
   return (
     <ChakraCard
-      as={"article"}
+      as="article"
       width="100%"
       padding="2rem 2rem"
       flexDirection="column"
@@ -17,9 +22,9 @@ export function Card({ children, isActive = false }: any) {
       borderWidth="1px"
       borderColor="#333"
       color="white"
-      height={"100%"}
+      height="100%"
       borderRadius="10px"
-      className={gradient}
+      className={isActive ? activeGradient : notActiveGradient}
     >
       {children}
     </ChakraCard>

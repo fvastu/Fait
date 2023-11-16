@@ -12,9 +12,8 @@ export const UserFollowing = () => {
           of User <br />
           around the World
         </Text>
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          varius enim in eros elementum tristique.
+        <Text fontWeight={"regular"}>
+          Transforming Lives Globally with Trusted Fitness Solutions
         </Text>
       </VStack>
     </section>
