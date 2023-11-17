@@ -7,6 +7,7 @@ import {
   Flex,
   HStack,
   Icon,
+  Image,
   Link,
   Stack,
   Text,
@@ -23,10 +24,9 @@ export default function Navigation() {
   return (
     <Box>
       <Flex w="100%" px="6" py="5" align="center" justify="space-between">
-        <Text textAlign={{ base: "center", md: "left" }} fontFamily={"heading"}>
-          Logo
-        </Text>
-
+        <Link as="a" w="100px">
+          <Image src="assets/logo.png"></Image>
+        </Link>
         <HStack as="nav" spacing="5">
           {NAVIGATION_ITEMS.map((item, i) => (
             <Link key={i}>
@@ -46,48 +46,6 @@ export default function Navigation() {
   );
 }
 
-/**
- * 
- * @returns 
- * import React from 'react';
-import { Drawer, DrawerBody, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerContent,
-  DrawerCloseButton, Flex, Text
-} from "@chakra-ui/react";
-
-
-export default function DrawerExample({
-const p = 15;
-  placement = "right",
-  width,
-  isOpen,
-  children,
-  onClose,
-  btnRef,
-  title = "Menu",
-  footer,
-}) {
-  return (
-    <Flex w={width}>
-      <Drawer
-        isOpen={isOpen}
-        placement={placement}
-        onClose={onClose}
-        finalFocusRef={btnRef}
-      >
-        <DrawerOverlay />
-        <DrawerContent alignItems="center">
-          <DrawerCloseButton alignSelf="end" mx={p} my={p} />
-          <DrawerHeader my={p}>
-            <Text as="p"> {title} </Text>
-          </DrawerHeader>
-          <DrawerBody>{children}</DrawerBody>
-          <DrawerFooter>{footer}</DrawerFooter>
-        </DrawerContent>
-      </Drawer>
-    </Flex>
-  );
-}
- */
 const MobileNav = () => {
   return (
     <Stack p={4} display={{ md: "none" }}>

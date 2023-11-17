@@ -1,5 +1,3 @@
-"use client";
-
 import { Center, HStack, Text, VStack } from "@chakra-ui/react";
 import {
   HeroImage,

@@ -7,6 +7,7 @@ import Footer from "../components/patterns/footer";
 import Hero from "../components/patterns/hero";
 import Navigation from "../components/patterns/navbar";
 import { Pricing } from "../components/patterns/pricing";
+import { Showcase } from "../components/patterns/showcase";
 import { Testimonials } from "../components/patterns/testimonials";
 import { TrustedBy } from "../components/patterns/trustedBy";
 import { UserFollowing } from "../components/patterns/user-following";
@@ -20,6 +21,7 @@ export default function Home() {
         <TrustedBy />
         <Features />
         <UserFollowing />
+        <Showcase />
         <Pricing />
         <Testimonials />
         <Faq />
