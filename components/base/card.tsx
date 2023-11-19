@@ -14,13 +14,11 @@ export function Card({ children, isActive }: CardProps) {
       as="article"
       width="100%"
       padding="2rem 2rem"
-      flexDirection="column"
       alignItems="center"
       borderStyle="solid"
       borderWidth="1px"
       borderColor="#333"
       color="white"
-      height="100%"
       borderRadius="10px"
       className={isActive ? activeGradient : notActiveGradient}
     >

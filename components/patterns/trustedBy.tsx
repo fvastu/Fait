@@ -1,4 +1,4 @@
-import { Stack, Text, VStack } from "@chakra-ui/react";
+import { HStack, Text, VStack } from "@chakra-ui/react";
 import { CompanyLogo } from "../base/assets-wrapper";
 
 export const TrustedBy = () => {
@@ -6,8 +6,7 @@ export const TrustedBy = () => {
     <section>
       <VStack w={"6xl"}>
         <Text fontSize={"xl"}>Trusted By</Text>
-        <Stack
-          direction="row"
+        <HStack
           spacing="2rem"
           justify="center"
           align="center"
@@ -23,7 +22,7 @@ export const TrustedBy = () => {
           <CompanyLogo w="200px"></CompanyLogo>
           <CompanyLogo w="200px"></CompanyLogo>
           <CompanyLogo w="200px"></CompanyLogo>
-        </Stack>
+        </HStack>
       </VStack>
     </section>
   );

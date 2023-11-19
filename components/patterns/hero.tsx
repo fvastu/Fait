@@ -1,4 +1,4 @@
-import { Center, HStack, Text, VStack } from "@chakra-ui/react";
+import { Center, HStack, Stack, Text, VStack } from "@chakra-ui/react";
 import {
   HeroImage,
   HorizontalPattern,
@@ -9,8 +9,13 @@ import { StoreButton } from "../base/store-button";
 export default function Hero() {
   return (
     <section>
-      <HStack paddingLeft={200} paddingTop={100}>
-        <VStack alignItems={"center"} w={"40%"}>
+      <Stack direction={{ base: "column", lg: "row" }} paddingTop={100}>
+        <VStack
+          spacing={10}
+          paddingLeft={100}
+          alignItems={"center"}
+          w={{ base: "100%", lg: "40%" }}
+        >
           <VStack
             spacing={-6}
             alignItems={"start"}
@@ -35,13 +40,13 @@ export default function Hero() {
             <StoreButton type="Google" />
           </HStack>
         </VStack>
-        <Center overflow={"hidden"} w={"60%"} h="full" position={"relative"}>
-          <HeroImage
-            marginLeft={-150}
-            boxSize="35vh"
-            objectFit="contain"
-            h="full"
-          ></HeroImage>
+        <Center
+          overflow={"hidden"}
+          w={{ base: "100%", lg: "60%" }}
+          h="full"
+          position={"relative"}
+        >
+          <HeroImage objectFit="cover" h="full"></HeroImage>
           <HorizontalPattern
             right={270}
             top={0}
@@ -59,6 +64,7 @@ export default function Hero() {
             objectFit={"cover"}
           />
           <ShapePattern
+            overflow={{ base: "hidden", lg: "visible" }}
             left={300}
             bottom={-150}
             position={"absolute"}
@@ -67,7 +73,7 @@ export default function Hero() {
             objectFit={"cover"}
           />
         </Center>
-      </HStack>
+      </Stack>
     </section>
   );
 }

@@ -6,6 +6,7 @@ export const DownloadFromStore = () => {
   return (
     <section style={{ width: "100%" }}>
       <Stack
+        overflow={{ base: "hidden", lg: "visible" }}
         position={"relative"}
         w="full"
         justifyContent={"center"}

@@ -1,4 +1,4 @@
-import { HStack, Image, Text, VStack } from "@chakra-ui/react";
+import { Image, Stack, Text, VStack } from "@chakra-ui/react";
 import { HorizontalPattern, ShapePattern } from "../base/assets-wrapper";
 import Button from "../base/button";
 
@@ -25,14 +25,20 @@ type ShowcaseData = typeof showcaseData[0];
 
 export const Showcase: React.FC = () => (
   <section>
-    <VStack w={"6xl"} spacing={100}>
+    <VStack maxW={"6xl"} w="full" spacing={{ base: 300, lg: 100 }}>
       {showcaseData.map((data: ShowcaseData) => {
         return (
           <article key={data.title}>
-            <HStack height={"550px"} minH={"550px"} w="full">
+            <Stack
+              align={"center"}
+              spacing={{ base: 100, lg: 0 }}
+              direction={{ base: "column", lg: "row" }}
+              height={{ base: 800, lg: 600 }}
+              w="full"
+            >
               <VStack
                 order={data.imagePosition === "left" ? 1 : 0}
-                w="50%"
+                w={{ base: "100%", lg: "50%" }}
                 h="full"
                 justifyContent={"center"}
                 alignItems={"start"}
@@ -48,14 +54,15 @@ export const Showcase: React.FC = () => (
                 w="50%"
                 h="full"
               >
-                <Image h="full" src={data.image}></Image>
+                <Image h="100%" src={data.image}></Image>
                 <HorizontalPattern
                   height={100}
-                  left={350}
+                  left={400}
                   zIndex={-1}
                   position={"absolute"}
                 ></HorizontalPattern>
                 <ShapePattern
+                  overflow={{ base: "hidden", lg: "visible" }}
                   top={100}
                   left={data.imagePosition === "left" ? -200 : 200}
                   zIndex={-1}
@@ -64,12 +71,12 @@ export const Showcase: React.FC = () => (
                 <HorizontalPattern
                   height={100}
                   bottom={0}
-                  right={350}
+                  right={400}
                   zIndex={-1}
                   position={"absolute"}
                 ></HorizontalPattern>
               </VStack>
-            </HStack>
+            </Stack>
           </article>
         );
       })}

@@ -1,4 +1,4 @@
-import { HStack, Text, VStack } from "@chakra-ui/react";
+import { Stack, Text, VStack } from "@chakra-ui/react";
 import { HealthIcon, ProgressIcon, WeightIcon } from "../base/assets-wrapper";
 import { Card } from "../base/card";
 
@@ -27,7 +27,7 @@ type FeatureData = typeof featureData[0];
 
 const FeatureCard: React.FC<FeatureData> = ({ icon, title, content }) => (
   <Card key={title}>
-    <VStack>
+    <VStack height="100%" minH={"100%"}>
       {icon}
       <Text fontSize="2xl">{title}</Text>
       <Text fontWeight="regular" fontSize="sm">
@@ -38,16 +38,26 @@ const FeatureCard: React.FC<FeatureData> = ({ icon, title, content }) => (
 );
 
 export const Features: React.FC = () => (
-  <section>
-    <VStack spacing={20} w="6xl">
-      <Text alignSelf="start" fontSize="4xl">
-        Fitness Made Simple
-      </Text>
-      <HStack textAlign="center" spacing={10}>
-        {featureData.map((feature) => (
-          <FeatureCard key={feature.title} {...feature} />
-        ))}
-      </HStack>
-    </VStack>
-  </section>
+  <VStack
+    as="section"
+    alignItems={"center"}
+    justifyContent={"center"}
+    spacing={20}
+    w="full"
+    maxW={"6xl"}
+  >
+    <Text alignSelf="start" fontSize="4xl">
+      Fitness Made Simple
+    </Text>
+    <Stack
+      direction={{ base: "column", md: "row" }}
+      w="full"
+      textAlign="center"
+      spacing={10}
+    >
+      {featureData.map((feature) => (
+        <FeatureCard key={feature.title} {...feature} />
+      ))}
+    </Stack>
+  </VStack>
 );
