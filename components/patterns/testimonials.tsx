@@ -51,7 +51,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ card }) => (
             <StarIcon height="15px" key={index} />
           ))}
       </HStack>
-      <Text fontWeight="medium">"{card.description}"</Text>
+      <Text fontWeight="medium">{card.description}</Text>
       <HStack spacing={4} w="full">
         <Image
           w="40px"
@@ -69,7 +69,7 @@ export const Testimonials: React.FC = () => (
   <VStack as="section" spacing={20} w="full" maxW={"6xl"}>
     <VStack>
       <Text fontSize="4xl">Customer testimonials</Text>
-      <Text fontWeight="regular" fontSize="lg">
+      <Text textAlign="center" fontWeight="regular" fontSize="lg">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </Text>
     </VStack>

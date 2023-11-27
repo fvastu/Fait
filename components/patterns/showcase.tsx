@@ -53,14 +53,15 @@ export const Showcase: React.FC = () => (
               w="50%"
               h="full"
             >
-              <Image h="100%" src={data.image}></Image>
+              <Image alt={"showcase"} h="100%" src={data.image}></Image>
               {/*
-              <HorizontalPattern
-                height={100}
-                left={400}
-                zIndex={-1}
-                position={"absolute"}
-              ></HorizontalPattern>*/}
+                <HorizontalPattern
+                  height={100}
+                  left={400}
+                  zIndex={-1}
+                  position={"absolute"}
+                ></HorizontalPattern>
+              */}
               <ShapePattern
                 overflow={{ base: "hidden", lg: "visible" }}
                 top={100}
@@ -68,13 +69,15 @@ export const Showcase: React.FC = () => (
                 zIndex={-1}
                 position={"absolute"}
               ></ShapePattern>
-              {/*<HorizontalPattern
-                height={100}
-                bottom={0}
-                right={400}
-                zIndex={-1}
-                position={"absolute"}
-              ></HorizontalPattern>*/}
+              {/*
+                <HorizontalPattern
+                  height={100}
+                  bottom={0}
+                  right={400}
+                  zIndex={-1}
+                  position={"absolute"}
+                ></HorizontalPattern>
+              */}
             </VStack>
           </Stack>
         </article>
