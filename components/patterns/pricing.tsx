@@ -1,9 +1,9 @@
 import {
   Box,
-  HStack,
   List,
   ListIcon,
   ListItem,
+  Stack,
   Text,
   VStack,
 } from "@chakra-ui/react";
@@ -73,20 +73,24 @@ const PricingCard: React.FC<{ card: CardData; isActive: boolean }> = ({
 
 export const Pricing = () => {
   return (
-    <section>
-      <VStack spacing={20} w={"6xl"}>
-        <VStack>
-          <Text fontSize={"4xl"}>Pricing plan</Text>
-          <Text fontWeight={"regular"} fontSize={"lg"}>
-            Find the best plan that works for you
-          </Text>
-        </VStack>
-        <HStack w="full" alignItems="stretch" textAlign="center" spacing={10}>
-          {Cards.map((card, index) => (
-            <PricingCard key={card.id} card={card} isActive={index === 1} />
-          ))}
-        </HStack>
+    <VStack as="section" spacing={20} w="full" maxW={"6xl"}>
+      <VStack>
+        <Text fontSize={"4xl"}>Pricing plan</Text>
+        <Text fontWeight={"regular"} fontSize={"lg"}>
+          Find the best plan that works for you
+        </Text>
       </VStack>
-    </section>
+      <Stack
+        direction={{ base: "column", lg: "row" }}
+        w="full"
+        alignItems="stretch"
+        textAlign="center"
+        spacing={10}
+      >
+        {Cards.map((card, index) => (
+          <PricingCard key={card.id} card={card} isActive={index === 1} />
+        ))}
+      </Stack>
+    </VStack>
   );
 };

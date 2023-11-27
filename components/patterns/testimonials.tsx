@@ -1,4 +1,4 @@
-import { HStack, Image, Text, VStack } from "@chakra-ui/react";
+import { HStack, Image, Stack, Text, VStack } from "@chakra-ui/react";
 import { StarIcon } from "../base/assets-wrapper";
 import { Card } from "../base/card";
 
@@ -66,19 +66,23 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ card }) => (
 );
 
 export const Testimonials: React.FC = () => (
-  <section>
-    <VStack spacing={20} w="6xl">
-      <VStack>
-        <Text fontSize="4xl">Customer testimonials</Text>
-        <Text fontWeight="regular" fontSize="lg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </Text>
-      </VStack>
-      <HStack w="full" alignItems="stretch" textAlign="center" spacing={5}>
-        {testimonialsData.map((card) => (
-          <TestimonialCard key={card.id} card={card} />
-        ))}
-      </HStack>
+  <VStack as="section" spacing={20} w="full" maxW={"6xl"}>
+    <VStack>
+      <Text fontSize="4xl">Customer testimonials</Text>
+      <Text fontWeight="regular" fontSize="lg">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Text>
     </VStack>
-  </section>
+    <Stack
+      direction={{ base: "column", lg: "row" }}
+      w="full"
+      alignItems="stretch"
+      textAlign="center"
+      spacing={5}
+    >
+      {testimonialsData.map((card) => (
+        <TestimonialCard key={card.id} card={card} />
+      ))}
+    </Stack>
+  </VStack>
 );
