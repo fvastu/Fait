@@ -12,7 +12,7 @@ export function Card({ children, isActive }: CardProps) {
   return (
     <ChakraCard
       as="article"
-      width="100%"
+      width="full"
       padding="2rem 2rem"
       alignItems="center"
       borderStyle="solid"

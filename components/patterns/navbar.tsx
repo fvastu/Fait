@@ -1,83 +1,117 @@
 "use client";
 
-import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import {
   Box,
-  Button,
+  Divider,
   Flex,
   HStack,
   IconButton,
-  Stack,
+  Image,
+  Link,
+  ScaleFade,
+  VStack,
   useDisclosure,
 } from "@chakra-ui/react";
+import { IoMdClose } from "react-icons/io";
+import { RxHamburgerMenu } from "react-icons/rx";
 import { NAVIGATION_ITEMS } from "../../shared/constants";
-
-interface Props {
-  children: React.ReactNode;
-}
-
-const NavLink = (props: Props) => {
-  const { children } = props;
-  return (
-    <Box
-      as="a"
-      px={2}
-      py={1}
-      rounded={"md"}
-      _hover={{
-        textDecoration: "none",
-        bg: "gray.200",
-      }}
-      href={"#"}
-    >
-      {children}
-    </Box>
-  );
-};
+import { NavigationItem } from "../../shared/navigation-item";
+import Button from "../base/button";
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <>
-      <Box px={4}>
-        <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-          <IconButton
-            size={"md"}
-            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-            aria-label={"Open Menu"}
-            display={{ md: "none" }}
-            onClick={isOpen ? onClose : onOpen}
-          />
-          <HStack spacing={8} alignItems={"center"}>
-            <Box>Logo</Box>
-            <HStack
-              as={"nav"}
-              spacing={4}
-              display={{ base: "none", md: "flex" }}
-            >
-              {NAVIGATION_ITEMS.map((link: any) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
-            </HStack>
+    <VStack w="full" direction={"column"} justifyContent={"center"}>
+      <Flex
+        w="full"
+        paddingX={{ base: 8, lg: 160 }}
+        h={16}
+        alignItems={"center"}
+        justifyContent={"space-between"}
+      >
+        <IconButton
+          height={"full"}
+          paddingLeft={3}
+          background={"transparent"}
+          color={"accent"}
+          size={"lg"}
+          icon={isOpen ? <IoMdClose /> : <RxHamburgerMenu />}
+          aria-label={"Open Menu"}
+          display={{ md: "none" }}
+          onClick={isOpen ? onClose : onOpen}
+        />
+        <HStack
+          display={{ base: "none", md: "flex" }}
+          w="full"
+          spacing={8}
+          alignItems={"center"}
+        >
+          <Link as="a" minW={"100px"} w="100px" href="/">
+            <Image src="assets/logo.png"></Image>
+          </Link>
+          <HStack
+            w="full"
+            justifyContent={"center"}
+            as={"nav"}
+            spacing={8}
+            display={{ base: "none", md: "flex" }}
+          >
+            {NAVIGATION_ITEMS.map((link: NavigationItem) => (
+              <a key={link.label} href={link.href}>
+                {link.label}
+              </a>
+            ))}
           </HStack>
-          <Flex alignItems={"center"}>
-            <Button variant={"solid"} size={"sm"} mr={4}>
-              Get Started
-            </Button>
-          </Flex>
+        </HStack>
+        <Flex alignItems={"center"}>
+          <Button>Get Started</Button>
         </Flex>
+      </Flex>
 
-        {isOpen ? (
-          <Box pb={4} display={{ md: "none" }}>
-            <Stack as={"nav"} spacing={4}>
-              {NAVIGATION_ITEMS.map((link: any) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
-            </Stack>
+      {isOpen ? (
+        <Box
+          position={"absolute"}
+          top={20}
+          w="full"
+          h="full"
+          display={{ md: "none" }}
+        >
+          <Box
+            borderBottom={"1px"}
+            borderColor={"grey"}
+            backdropFilter="auto"
+            backdropBlur="30px"
+            h="500px"
+            as={"nav"}
+          >
+            <ScaleFade initialScale={0.9} in={isOpen}>
+              <VStack paddingX={10} spacing={8} alignItems={"start"}>
+                {NAVIGATION_ITEMS.map((link: NavigationItem) => (
+                  <Link
+                    _hover={{
+                      color: "accent",
+                    }}
+                    as="a"
+                    color={"white"}
+                    fontSize={"xl"}
+                    key={link.label}
+                    href={link.href}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </VStack>
+            </ScaleFade>
           </Box>
-        ) : null}
-      </Box>
-    </>
+        </Box>
+      ) : null}
+      <Divider
+        margin={0}
+        borderWidth={"0.5px"}
+        opacity={0.15}
+        orientation="horizontal"
+      />
+    </VStack>
   );
 }

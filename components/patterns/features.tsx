@@ -27,7 +27,7 @@ type FeatureData = typeof featureData[0];
 
 const FeatureCard: React.FC<FeatureData> = ({ icon, title, content }) => (
   <Card key={title}>
-    <VStack height="100%" minH={"100%"}>
+    <VStack height="full" minH={"full"}>
       {icon}
       <Text fontSize="2xl">{title}</Text>
       <Text fontWeight="regular" fontSize="sm">

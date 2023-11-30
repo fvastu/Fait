@@ -8,7 +8,7 @@
 
 ## About
 
-Are you looking to kickstart your web development journey with Next.js and TypeScript? Look no further! The nextjs-typescript-chakra-starter is here to make your life easier.
+Are you looking to kickstart your web development journey with Next.js and TypeScript? Look no further! The fait is here to make your life easier.
 
 ### 🚀 Supercharge Your Development
 
@@ -29,8 +29,8 @@ With this template, you can jump straight into your side project without worryin
 
 To get started with this project, you can follow these steps:
 
-1. 📦 Clone the repository: `git clone https://github.com/yourusername/nextjs-typescript-chakra-starter.git`
-2. 📂 Navigate to the project folder: `cd nextjs-typescript-chakra-starter`
+1. 📦 Clone the repository: `git clone https://github.com/yourusername/fait.git`
+2. 📂 Navigate to the project folder: `cd fait`
 3. ⚙️ Install dependencies: `npm install`
 4. 🚀 Run the development server: `npm run dev`
 

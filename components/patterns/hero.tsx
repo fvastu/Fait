@@ -17,13 +17,12 @@ export default function Hero() {
     >
       <VStack
         spacing={10}
-        paddingLeft={{ base: 50, lg: 150 }}
+        paddingLeft={{ base: 8, lg: 160 }}
         paddingRight={{ base: 50, lg: 0 }}
         alignItems={"center"}
         w={{ base: "100%", lg: "50%" }}
       >
         <VStack
-          spacing={-6}
           alignItems={"start"}
           w={"100%"}
           fontWeight={"extrabold"}
