@@ -1,4 +1,6 @@
-import { Stack, Text, VStack } from "@chakra-ui/react";
+import { Text, VStack } from "@chakra-ui/react"; // Make sure to replace '@chakra-ui/react' with the actual Chakra UI import path
+import React, { forwardRef } from "react";
+import { AnimatedOnScroll } from "../base/animated-on-scroll";
 import { HealthIcon, ProgressIcon, WeightIcon } from "../base/assets-wrapper";
 import { Card } from "../base/card";
 
@@ -25,9 +27,14 @@ const featureData = [
 
 type FeatureData = typeof featureData[0];
 
-const FeatureCard: React.FC<FeatureData> = ({ icon, title, content }) => (
-  <Card key={title}>
-    <VStack height="full" minH={"full"}>
+type FeatureCardProps = FeatureData;
+
+const FeatureCard: React.FC<FeatureCardProps> = forwardRef<
+  HTMLDivElement,
+  FeatureCardProps
+>(({ icon, title, content, ...rest }, ref) => (
+  <Card ref={ref} key={title} {...rest}>
+    <VStack height="full" minH="full">
       {icon}
       <Text fontSize="2xl">{title}</Text>
       <Text fontWeight="regular" fontSize="sm">
@@ -35,7 +42,7 @@ const FeatureCard: React.FC<FeatureData> = ({ icon, title, content }) => (
       </Text>
     </VStack>
   </Card>
-);
+));
 
 export const Features: React.FC = () => (
   <VStack
@@ -49,15 +56,10 @@ export const Features: React.FC = () => (
     <Text alignSelf="start" fontSize="4xl">
       Fitness Made Simple
     </Text>
-    <Stack
-      direction={{ base: "column", md: "row" }}
-      w="full"
-      textAlign="center"
-      spacing={10}
-    >
+    <AnimatedOnScroll className="flex flex-column gap-10">
       {featureData.map((feature) => (
         <FeatureCard key={feature.title} {...feature} />
       ))}
-    </Stack>
+    </AnimatedOnScroll>
   </VStack>
 );

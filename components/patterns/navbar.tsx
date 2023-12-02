@@ -8,7 +8,7 @@ import {
   IconButton,
   Image,
   Link,
-  ScaleFade,
+  SlideFade,
   VStack,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -31,8 +31,7 @@ export default function Navbar() {
         justifyContent={"space-between"}
       >
         <IconButton
-          height={"full"}
-          paddingLeft={3}
+          paddingLeft={3.5}
           background={"transparent"}
           color={"accent"}
           size={"lg"}
@@ -64,7 +63,10 @@ export default function Navbar() {
             ))}
           </HStack>
         </HStack>
-        <Flex alignItems={"center"}>
+        <Flex
+          style={{ filter: `blur(${isOpen ? "20px" : "0px"})` }}
+          alignItems={"center"}
+        >
           <Button>Get Started</Button>
         </Flex>
       </Flex>
@@ -73,7 +75,8 @@ export default function Navbar() {
         <Box
           position={"absolute"}
           top={20}
-          w="full"
+          left={0}
+          w="100%"
           h="full"
           display={{ md: "none" }}
         >
@@ -85,7 +88,7 @@ export default function Navbar() {
             h="500px"
             as={"nav"}
           >
-            <ScaleFade initialScale={0.9} in={isOpen}>
+            <SlideFade in={isOpen} offsetY="20px">
               <VStack paddingX={10} spacing={8} alignItems={"start"}>
                 {NAVIGATION_ITEMS.map((link: NavigationItem) => (
                   <Link
@@ -102,7 +105,7 @@ export default function Navbar() {
                   </Link>
                 ))}
               </VStack>
-            </ScaleFade>
+            </SlideFade>
           </Box>
         </Box>
       ) : null}
