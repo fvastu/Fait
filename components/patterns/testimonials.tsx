@@ -1,4 +1,6 @@
-import { HStack, Image, Stack, Text, VStack } from "@chakra-ui/react";
+import { HStack, Image, Text, VStack } from "@chakra-ui/react";
+import { forwardRef } from "react";
+import { AnimatedOnScroll } from "../base/animated-on-scroll";
 import { StarIcon } from "../base/assets-wrapper";
 import { Card } from "../base/card";
 
@@ -41,9 +43,12 @@ type TestimonialCardProps = {
   card: TestimonialData;
 };
 
-const TestimonialCard: React.FC<TestimonialCardProps> = ({ card }) => (
-  <Card key={card.id}>
-    <VStack textAlign="left" w="full" spacing={5}>
+const TestimonialCard: React.FC<TestimonialCardProps> = forwardRef<
+  HTMLDivElement,
+  TestimonialCardProps
+>(({ card }, ref) => (
+  <Card ref={ref} key={card.id}>
+    <VStack textAlign="left" w="full" spacing={4}>
       <HStack w="full" spacing={0} alignContent="start">
         {Array(card.stars)
           .fill(0)
@@ -63,26 +68,26 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ card }) => (
       </HStack>
     </VStack>
   </Card>
-);
+));
 
 export const Testimonials: React.FC = () => (
-  <VStack as="section" spacing={20} w="full" maxW={"6xl"}>
+  <VStack as="section" spacing={16} w="full" maxW={"6xl"}>
     <VStack>
       <Text fontSize="4xl">Customer testimonials</Text>
       <Text textAlign="center" fontWeight="regular" fontSize="lg">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </Text>
     </VStack>
-    <Stack
+    <AnimatedOnScroll
       direction={{ base: "column", lg: "row" }}
       w="full"
       alignItems="stretch"
       textAlign="center"
-      spacing={5}
+      spacing={8}
     >
       {testimonialsData.map((card) => (
         <TestimonialCard key={card.id} card={card} />
       ))}
-    </Stack>
+    </AnimatedOnScroll>
   </VStack>
 );

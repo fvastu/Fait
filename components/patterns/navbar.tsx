@@ -2,7 +2,6 @@
 
 import {
   Box,
-  Divider,
   Flex,
   HStack,
   IconButton,
@@ -16,7 +15,7 @@ import { IoMdClose } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { NAVIGATION_ITEMS } from "../../shared/constants";
 import { NavigationItem } from "../../shared/navigation-item";
-import Button from "../base/button";
+import { Button } from "../base/button";
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -76,7 +75,7 @@ export default function Navbar() {
           position={"absolute"}
           top={20}
           left={0}
-          w="100%"
+          w="full"
           h="full"
           display={{ md: "none" }}
         >
@@ -89,7 +88,7 @@ export default function Navbar() {
             as={"nav"}
           >
             <SlideFade in={isOpen} offsetY="20px">
-              <VStack paddingX={10} spacing={8} alignItems={"start"}>
+              <VStack paddingX={8} spacing={8} alignItems={"start"}>
                 {NAVIGATION_ITEMS.map((link: NavigationItem) => (
                   <Link
                     _hover={{
@@ -109,12 +108,6 @@ export default function Navbar() {
           </Box>
         </Box>
       ) : null}
-      <Divider
-        margin={0}
-        borderWidth={"0.5px"}
-        opacity={0.15}
-        orientation="horizontal"
-      />
     </VStack>
   );
 }

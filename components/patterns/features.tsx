@@ -34,7 +34,7 @@ const FeatureCard: React.FC<FeatureCardProps> = forwardRef<
   FeatureCardProps
 >(({ icon, title, content, ...rest }, ref) => (
   <Card ref={ref} key={title} {...rest}>
-    <VStack height="full" minH="full">
+    <VStack textAlign={"center"} height="full" minH="full">
       {icon}
       <Text fontSize="2xl">{title}</Text>
       <Text fontWeight="regular" fontSize="sm">
@@ -49,14 +49,14 @@ export const Features: React.FC = () => (
     as="section"
     alignItems={"center"}
     justifyContent={"center"}
-    spacing={20}
+    spacing={16}
     w="full"
     maxW={"6xl"}
   >
-    <Text alignSelf="start" fontSize="4xl">
+    <Text alignSelf={{ base: "start", md: "center" }} fontSize="4xl">
       Fitness Made Simple
     </Text>
-    <AnimatedOnScroll className="flex flex-column gap-10">
+    <AnimatedOnScroll spacing={8} direction={{ base: "column", md: "row" }}>
       {featureData.map((feature) => (
         <FeatureCard key={feature.title} {...feature} />
       ))}

@@ -8,7 +8,8 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { ReactNode } from "react";
-import Button from "../base/button";
+import { AnimatedOnScroll } from "../base/animated-on-scroll";
+import { Button } from "../base/button";
 
 const ListHeader = ({ children }: { children: ReactNode }) => {
   return (
@@ -20,13 +21,13 @@ const ListHeader = ({ children }: { children: ReactNode }) => {
 
 export default function Footer() {
   return (
-    <VStack as="section" marginBottom={20} spacing={10}>
-      <Stack
+    <VStack as="section" marginBottom={16} spacing={8}>
+      <AnimatedOnScroll
         direction={{ base: "column", lg: "row" }}
         w="full"
         maxW={"6xl"}
         alignItems={"start"}
-        spacing={20}
+        spacing={16}
       >
         <VStack w={{ base: "full", lg: "50%" }} spacing={5}>
           <Text fontWeight={"regular"} w="full">
@@ -111,7 +112,7 @@ export default function Footer() {
             </Box>
           </Stack>
         </SimpleGrid>
-      </Stack>
+      </AnimatedOnScroll>
       <Text>© Fait. All rights reserved.</Text>
     </VStack>
   );

@@ -1,10 +1,11 @@
 import { Text, VStack } from "@chakra-ui/react";
-import Button from "../base/button";
+import { AnimatedOnScroll } from "../base/animated-on-scroll";
+import { Button } from "../base/button";
 
 export const Contact = () => {
   return (
     <VStack as="section" w="full" maxW={"6xl"}>
-      <VStack spacing={5}>
+      <AnimatedOnScroll alignItems={"center"} textAlign={"center"} spacing={4}>
         <Text fontSize={"4xl"}>Still have questions?</Text>
         <Text
           textAlign={"center"}
@@ -15,7 +16,7 @@ export const Contact = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </Text>
         <Button>Contact</Button>
-      </VStack>
+      </AnimatedOnScroll>
     </VStack>
   );
 };

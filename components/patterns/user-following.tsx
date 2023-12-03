@@ -1,8 +1,9 @@
-import { Text, VStack } from "@chakra-ui/react";
+import { Text } from "@chakra-ui/react";
+import { AnimatedOnScroll } from "../base/animated-on-scroll";
 
 export const UserFollowing = () => {
   return (
-    <VStack as="section">
+    <AnimatedOnScroll alignItems={"center"} as="section">
       <Text textAlign={"center"} fontSize={"5xl"}>
         Trusted by
         <Text fontWeight={"regular"} as="span" color="accent">
@@ -14,6 +15,6 @@ export const UserFollowing = () => {
       <Text align={{ base: "center", lg: "left" }} fontWeight={"regular"}>
         Transforming Lives Globally with Trusted Fitness Solutions
       </Text>
-    </VStack>
+    </AnimatedOnScroll>
   );
 };

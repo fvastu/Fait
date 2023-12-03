@@ -1,6 +1,6 @@
 import { Image, Stack, Text, VStack } from "@chakra-ui/react";
-import { ShapePattern } from "../base/assets-wrapper";
-import Button from "../base/button";
+import { AnimatedOnScroll } from "../base/animated-on-scroll";
+import { Button } from "../base/button";
 
 const showcaseData = [
   {
@@ -27,60 +27,65 @@ export const Showcase: React.FC = () => (
   <VStack as="section" maxW={"6xl"} w="full" spacing={{ base: 50, lg: 100 }}>
     {showcaseData.map((data: ShowcaseData) => {
       return (
-        <article key={data.title}>
-          <Stack
-            align={"center"}
-            spacing={{ base: 100, lg: 0 }}
-            direction={{ base: "column", lg: "row" }}
-            height={{ base: 800, lg: 600 }}
-            w="full"
+        <Stack
+          key={data.title}
+          as="article"
+          spacing={{ base: 100, lg: 50 }}
+          justifyContent={"space-between"}
+          textAlign={{ base: "center", md: "start" }}
+          alignItems={{ base: "center", md: "start" }}
+          direction={{ base: "column", md: "row" }}
+          w="full"
+          h="full"
+        >
+          <AnimatedOnScroll
+            delay={0}
+            order={data.imagePosition === "left" ? 1 : 0}
+            w={{ base: "100%", lg: "50%" }}
+            h="full"
+            justifyContent={{ base: "center", md: "start" }}
+            alignItems={{ base: "center", md: "start" }}
+            spacing={8}
           >
-            <VStack
-              order={data.imagePosition === "left" ? 1 : 0}
-              w={{ base: "100%", lg: "50%" }}
+            <Text fontSize={"5xl"}>{data.title}</Text>
+            <Text fontWeight={"regular"}>{data.subtitle}</Text>
+            <Button>{data.cta}</Button>
+          </AnimatedOnScroll>
+          <AnimatedOnScroll
+            direction={"column"}
+            order={data.imagePosition === "left" ? 0 : 1}
+            h="full"
+          >
+            <Image
+              maxH={"600px"}
+              alt={"showcase"}
               h="full"
-              justifyContent={"center"}
-              alignItems={"start"}
-              spacing={5}
-            >
-              <Text fontSize={"5xl"}>{data.title}</Text>
-              <Text fontWeight={"regular"}>{data.subtitle}</Text>
-              <Button>{data.cta}</Button>
-            </VStack>
-            <VStack
-              order={data.imagePosition === "left" ? 0 : 1}
-              position={"relative"}
-              w="50%"
-              h="full"
-            >
-              <Image alt={"showcase"} h="100%" src={data.image}></Image>
-              {/*
-                <HorizontalPattern
-                  height={100}
-                  left={400}
-                  zIndex={-1}
-                  position={"absolute"}
-                ></HorizontalPattern>
-              */}
-              <ShapePattern
-                overflow={{ base: "hidden", lg: "visible" }}
-                top={100}
-                left={data.imagePosition === "left" ? -200 : 200}
-                zIndex={-1}
-                position={"absolute"}
-              ></ShapePattern>
-              {/*
-                <HorizontalPattern
-                  height={100}
-                  bottom={0}
-                  right={400}
-                  zIndex={-1}
-                  position={"absolute"}
-                ></HorizontalPattern>
-              */}
-            </VStack>
-          </Stack>
-        </article>
+              src={data.image}
+            ></Image>
+            {/*
+            <HorizontalPattern
+              height={100}
+              left={400}
+              zIndex={-1}
+              position={"absolute"}
+            ></HorizontalPattern>
+          <ShapePattern
+            overflow={{ base: "hidden", lg: "visible" }}
+            top={100}
+            left={data.imagePosition === "left" ? -200 : 200}
+            zIndex={-1}
+            position={"absolute"}
+          ></ShapePattern>
+            <HorizontalPattern
+              height={100}
+              bottom={0}
+              right={400}
+              zIndex={-1}
+              position={"absolute"}
+            ></HorizontalPattern>
+          */}
+          </AnimatedOnScroll>
+        </Stack>
       );
     })}
   </VStack>

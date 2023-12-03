@@ -1,30 +1,35 @@
 import {
-  BoxProps,
-  ButtonProps,
   Button as ChakraButton,
+  ButtonProps as ChakraButtonProps,
 } from "@chakra-ui/react";
-import { ReactNode } from "react";
+import { ReactNode, forwardRef } from "react";
 import { readColorFromTheme } from "../../shared/read-from-theme";
 
-interface CustomButtonProps extends BoxProps {
+interface ButtonProps extends ChakraButtonProps {
   children: ReactNode;
-  buttonProps?: ButtonProps;
 }
 
-export default function Button({ children, buttonProps }: CustomButtonProps) {
-  const accentColor = readColorFromTheme("accent").default;
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ children, ...rest }, ref) => {
+    const accentColor = readColorFromTheme("accent").default;
 
-  const buttonStyles = {
-    padding: "1.5rem 2rem",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    _hover: {
-      bg: accentColor,
-    },
-    backgroundColor: "accent",
-    ...buttonProps,
-  };
+    const buttonStyles = {
+      width: "min-content",
+      padding: "1.5rem 2rem",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      _hover: {
+        bg: accentColor,
+      },
+      backgroundColor: accentColor, // Fix here
+      ...rest,
+    };
 
-  return <ChakraButton {...buttonStyles}>{children}</ChakraButton>;
-}
+    return (
+      <ChakraButton ref={ref} {...buttonStyles}>
+        {children}
+      </ChakraButton>
+    );
+  }
+);

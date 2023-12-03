@@ -1,5 +1,5 @@
 import { HStack, Stack, Text, VStack } from "@chakra-ui/react";
-import { ShapePattern } from "../base/assets-wrapper";
+import { AnimatedOnScroll } from "../base/animated-on-scroll";
 import { StoreButton } from "../base/store-button";
 
 export const DownloadFromStore = () => {
@@ -12,6 +12,7 @@ export const DownloadFromStore = () => {
       justifyContent={"center"}
       alignItems={"center"}
     >
+      {/*
       <ShapePattern
         left={0}
         zIndex={-1}
@@ -30,7 +31,11 @@ export const DownloadFromStore = () => {
         position={"absolute"}
       ></HorizontalPattern>*/}
       <VStack w="full" maxW={"2xl"}>
-        <VStack textAlign={"center"} spacing={5}>
+        <AnimatedOnScroll
+          alignItems={"center"}
+          textAlign={"center"}
+          spacing={4}
+        >
           <Text fontSize={"5xl"}>
             Take your Fitness to the Next Level with
             <Text fontWeight={"regular"} as="span" color="accent">
@@ -47,7 +52,7 @@ export const DownloadFromStore = () => {
             <StoreButton type="Apple" />
             <StoreButton type="Google" />
           </HStack>
-        </VStack>
+        </AnimatedOnScroll>
       </VStack>
     </Stack>
   );

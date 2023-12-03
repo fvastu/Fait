@@ -1,26 +1,27 @@
-import { AnimatedOnScrollStack } from "@fvastu/animated-on-scroll-stack";
-import { FC } from "react";
+import {
+  AnimatedOnScrollStack,
+  AnimatedOnScrollStackProps,
+} from "@fvastu/animated-on-scroll-stack";
+import { forwardRef } from "react";
 
 type AnimatedOnScrollProps = {
   children?: React.ReactNode;
   className?: string;
-};
+} & Partial<AnimatedOnScrollStackProps>;
 
-export const AnimatedOnScroll: FC<AnimatedOnScrollProps> = ({
-  children,
-  className,
-  ...rest
-}) => {
+export const AnimatedOnScroll = forwardRef<
+  HTMLDivElement,
+  AnimatedOnScrollProps
+>(({ children, className, interval, delay, ...rest }) => {
   return (
     <AnimatedOnScrollStack
-      direction={"row"}
       origin="bottom"
-      interval={500}
-      delay={200}
+      delay={delay ?? 200}
       className={className}
+      interval={interval ?? 500}
       {...rest}
     >
       {children}
     </AnimatedOnScrollStack>
   );
-};
+});

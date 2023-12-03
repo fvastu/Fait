@@ -8,6 +8,7 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import { AnimatedOnScroll } from "../base/animated-on-scroll";
 
 interface FaqItemProps {
   question: string;
@@ -42,21 +43,19 @@ const FaqSection: React.FC<FaqSectionProps> = ({
   faqItems,
 }) => {
   return (
-    <VStack w="full" as="section" spacing={20} maxW={"2xl"}>
+    <AnimatedOnScroll w="full" as="section" spacing={16} maxW={"2xl"}>
       <VStack textAlign={"center"}>
         <Text fontSize={"4xl"}>{title}</Text>
         <Text fontWeight={"regular"} fontSize={"lg"}>
           {description}
         </Text>
       </VStack>
-      <VStack w="full">
-        <Accordion w="full" allowToggle>
-          {faqItems.map((item, index) => (
-            <FaqItem key={index} {...item} />
-          ))}
-        </Accordion>
-      </VStack>
-    </VStack>
+      <Accordion w="full" allowToggle>
+        {faqItems.map((item, index) => (
+          <FaqItem key={index} {...item} />
+        ))}
+      </Accordion>
+    </AnimatedOnScroll>
   );
 };
 
