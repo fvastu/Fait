@@ -4,7 +4,7 @@ import { Button } from "../base/button";
 
 export const Contact = () => {
   return (
-    <VStack as="section" w="full" maxW={"6xl"}>
+    <VStack id="contact" as="section" w="full" maxW={"6xl"}>
       <AnimatedOnScroll alignItems={"center"} textAlign={"center"} spacing={4}>
         <Text fontSize={"4xl"}>Still have questions?</Text>
         <Text

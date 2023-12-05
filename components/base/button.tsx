@@ -12,6 +12,7 @@ interface ButtonProps extends ChakraButtonProps {
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, ...rest }, ref) => {
     const accentColor = readColorFromTheme("accent").default;
+    const opaqueColor = `${accentColor}80`;
 
     const buttonStyles = {
       width: "min-content",
@@ -20,9 +21,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       alignItems: "center",
       justifyContent: "center",
       _hover: {
-        bg: accentColor,
+        bg: opaqueColor,
       },
-      backgroundColor: accentColor, // Fix here
+      backgroundColor: accentColor,
       ...rest,
     };
 

@@ -43,7 +43,7 @@ const FaqSection: React.FC<FaqSectionProps> = ({
   faqItems,
 }) => {
   return (
-    <AnimatedOnScroll w="full" as="section" spacing={16} maxW={"2xl"}>
+    <AnimatedOnScroll id="faq" w="full" as="section" spacing={16} maxW={"2xl"}>
       <VStack textAlign={"center"}>
         <Text fontSize={"4xl"}>{title}</Text>
         <Text fontWeight={"regular"} fontSize={"lg"}>

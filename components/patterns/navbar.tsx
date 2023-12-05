@@ -6,11 +6,11 @@ import {
   HStack,
   IconButton,
   Image,
-  Link,
   SlideFade,
   VStack,
   useDisclosure,
 } from "@chakra-ui/react";
+import Link from "next/link";
 import { IoMdClose } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { NAVIGATION_ITEMS } from "../../shared/constants";
@@ -45,8 +45,8 @@ export default function Navbar() {
           spacing={8}
           alignItems={"center"}
         >
-          <Link as="a" minW={"100px"} w="100px" href="/">
-            <Image src="assets/logo.png"></Image>
+          <Link as="a" href="/">
+            <Image minW={"100px"} w="100px" src="assets/logo.png"></Image>
           </Link>
           <HStack
             w="full"
@@ -56,9 +56,9 @@ export default function Navbar() {
             display={{ base: "none", md: "flex" }}
           >
             {NAVIGATION_ITEMS.map((link: NavigationItem) => (
-              <a key={link.label} href={link.href}>
+              <Link key={link.label} href={link.href ?? ""}>
                 {link.label}
-              </a>
+              </Link>
             ))}
           </HStack>
         </HStack>
@@ -90,17 +90,16 @@ export default function Navbar() {
             <SlideFade in={isOpen} offsetY="20px">
               <VStack paddingX={8} spacing={8} alignItems={"start"}>
                 {NAVIGATION_ITEMS.map((link: NavigationItem) => (
-                  <Link
-                    _hover={{
-                      color: "accent",
-                    }}
-                    as="a"
-                    color={"white"}
-                    fontSize={"xl"}
-                    key={link.label}
-                    href={link.href}
-                  >
-                    {link.label}
+                  <Link as="a" key={link.label} href={link.href ?? ""}>
+                    <Box
+                      _hover={{
+                        color: "accent",
+                      }}
+                      color={"white"}
+                      fontSize={"xl"}
+                    >
+                      {link.label}
+                    </Box>
                   </Link>
                 ))}
               </VStack>

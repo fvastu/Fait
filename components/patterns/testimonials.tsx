@@ -71,7 +71,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = forwardRef<
 ));
 
 export const Testimonials: React.FC = () => (
-  <VStack as="section" spacing={16} w="full" maxW={"6xl"}>
+  <VStack id="testimonials" as="section" spacing={16} w="full" maxW={"6xl"}>
     <VStack>
       <Text fontSize="4xl">Customer testimonials</Text>
       <Text textAlign="center" fontWeight="regular" fontSize="lg">

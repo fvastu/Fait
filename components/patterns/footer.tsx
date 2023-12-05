@@ -21,7 +21,7 @@ const ListHeader = ({ children }: { children: ReactNode }) => {
 
 export default function Footer() {
   return (
-    <VStack as="section" marginBottom={16} spacing={8}>
+    <VStack id="footer" as="section" marginBottom={16} spacing={8}>
       <AnimatedOnScroll
         direction={{ base: "column", lg: "row" }}
         w="full"

@@ -6,7 +6,7 @@ const logosData = Array(9).fill({ width: { base: "10rem", lg: "12rem" } });
 
 export const TrustedBy = () => {
   return (
-    <VStack as="section" w="full" maxW="6xl" spacing={8}>
+    <VStack id="trusted-by" as="section" w="full" maxW="6xl" spacing={8}>
       <Text fontSize="4xl">Trusted By</Text>
       <AnimatedOnScroll>
         <Box

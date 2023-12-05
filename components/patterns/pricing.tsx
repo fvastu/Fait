@@ -69,7 +69,7 @@ const PricingCard = forwardRef(({ card, isActive, ...rest }, ref) => (
 
 export const Pricing = () => {
   return (
-    <VStack as="section" spacing={16} w="full" maxW={"6xl"}>
+    <VStack id="pricing" as="section" spacing={16} w="full" maxW={"6xl"}>
       <VStack>
         <Text fontSize={"4xl"}>Pricing plan</Text>
         <Text fontWeight={"regular"} fontSize={"lg"}>

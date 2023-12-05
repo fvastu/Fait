@@ -2,7 +2,7 @@ import { Text, VStack } from "@chakra-ui/react";
 
 export const JoinNewsletter = () => {
   return (
-    <VStack as="section" w={"2xl"}>
+    <VStack id="join-newsletter" as="section" w={"2xl"}>
       <VStack textAlign={"center"}>
         <Text fontSize={"xl"}>
           Join our newsletter to stay up to date on features and releases.

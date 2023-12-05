@@ -1,5 +1,6 @@
-import { Image, Stack, Text, VStack } from "@chakra-ui/react";
+import { Box, Image, Stack, Text, VStack } from "@chakra-ui/react";
 import { AnimatedOnScroll } from "../base/animated-on-scroll";
+import { HorizontalPattern, ShapePattern } from "../base/assets-wrapper";
 import { Button } from "../base/button";
 
 const showcaseData = [
@@ -24,7 +25,13 @@ const showcaseData = [
 type ShowcaseData = typeof showcaseData[0];
 
 export const Showcase: React.FC = () => (
-  <VStack as="section" maxW={"6xl"} w="full" spacing={{ base: 50, lg: 100 }}>
+  <VStack
+    id="showcase"
+    as="section"
+    maxW={"6xl"}
+    w="full"
+    spacing={{ base: 50, lg: 100 }}
+  >
     {showcaseData.map((data: ShowcaseData) => {
       return (
         <Stack
@@ -56,34 +63,42 @@ export const Showcase: React.FC = () => (
             order={data.imagePosition === "left" ? 0 : 1}
             h="full"
           >
-            <Image
-              maxH={"600px"}
-              alt={"showcase"}
-              h="full"
-              src={data.image}
-            ></Image>
-            {/*
-            <HorizontalPattern
-              height={100}
-              left={400}
-              zIndex={-1}
-              position={"absolute"}
-            ></HorizontalPattern>
-          <ShapePattern
-            overflow={{ base: "hidden", lg: "visible" }}
-            top={100}
-            left={data.imagePosition === "left" ? -200 : 200}
-            zIndex={-1}
-            position={"absolute"}
-          ></ShapePattern>
-            <HorizontalPattern
-              height={100}
-              bottom={0}
-              right={400}
-              zIndex={-1}
-              position={"absolute"}
-            ></HorizontalPattern>
-          */}
+            <Box zIndex={0} position={"relative"} h="full">
+              <HorizontalPattern
+                right={250}
+                bottom={0}
+                position={"absolute"}
+                height="12vh"
+                objectFit={"cover"}
+                zIndex={-1}
+                visibility={{ base: "hidden", md: "visible" }}
+              />
+              <HorizontalPattern
+                left={250}
+                top={0}
+                position={"absolute"}
+                height="12vh"
+                objectFit={"cover"}
+                zIndex={-1}
+                visibility={{ base: "hidden", md: "visible" }}
+              />
+              <ShapePattern
+                right={data.imagePosition === "left" ? 200 : undefined}
+                left={data.imagePosition !== "left" ? 200 : undefined}
+                bottom={-100}
+                position={"absolute"}
+                objectFit={"cover"}
+                height="60vh"
+                zIndex={-2}
+                visibility={{ base: "hidden", md: "visible" }}
+              />
+              <Image
+                maxH={"600px"}
+                h="full"
+                alt={"showcase"}
+                src={data.image}
+              ></Image>
+            </Box>
           </AnimatedOnScroll>
         </Stack>
       );

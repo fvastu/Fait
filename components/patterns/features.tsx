@@ -46,6 +46,7 @@ const FeatureCard: React.FC<FeatureCardProps> = forwardRef<
 
 export const Features: React.FC = () => (
   <VStack
+    id="features"
     as="section"
     alignItems={"center"}
     justifyContent={"center"}

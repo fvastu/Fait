@@ -3,7 +3,7 @@ import { AnimatedOnScroll } from "../base/animated-on-scroll";
 
 export const UserFollowing = () => {
   return (
-    <AnimatedOnScroll alignItems={"center"} as="section">
+    <AnimatedOnScroll id="user-following" alignItems={"center"} as="section">
       <Text textAlign={"center"} fontSize={"5xl"}>
         Trusted by
         <Text fontWeight={"regular"} as="span" color="accent">

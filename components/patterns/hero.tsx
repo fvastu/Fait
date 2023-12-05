@@ -1,10 +1,11 @@
 import { Center, HStack, Stack, Text, VStack } from "@chakra-ui/react";
-import { HeroImage } from "../base/assets-wrapper";
 import { StoreButton } from "../base/store-button";
+import { HeroFullImage } from "./hero-full-image";
 
 export default function Hero() {
   return (
     <Stack
+      id="hero"
       h={{ base: 1200, lg: 800 }}
       as="section"
       direction={{ base: "column", lg: "row" }}
@@ -42,37 +43,7 @@ export default function Hero() {
         </HStack>
       </VStack>
       <Center overflow={"hidden"} w={{ base: "100%", lg: "50%" }} h="full">
-        <HeroImage
-          boxSize={{ base: 900, lg: 700 }}
-          objectFit="contain"
-          h="full"
-        ></HeroImage>
-        {/* 
-        <HorizontalPattern
-          right={"20%"}
-          top={0}
-          position={"absolute"}
-          height="12vh"
-          zIndex={"hide"}
-          objectFit={"cover"}
-        />
-        <HorizontalPattern
-          left={"20%"}
-          bottom={0}
-          position={"absolute"}
-          height="12vh"
-          zIndex={"hide"}
-          objectFit={"cover"}
-        />
-        <ShapePattern
-          overflow={{ base: "hidden", lg: "visible" }}
-          left={"40%"}
-          top={"30%"}
-          position={"absolute"}
-          height="100%"
-          zIndex={"hide"}
-          objectFit={"cover"}
-        />*/}
+        <HeroFullImage></HeroFullImage>
       </Center>
     </Stack>
   );

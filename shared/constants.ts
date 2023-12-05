@@ -2,19 +2,19 @@ import { NavigationItem } from "./navigation-item";
 
 export const NAVIGATION_ITEMS: Array<NavigationItem> = [
   {
-    label: "Feature",
-    href: "#Feature",
+    label: "Features",
+    href: "#features",
   },
   {
     label: "Pricing",
-    href: "#Pricing",
+    href: "#pricing",
   },
   {
-    label: "Testimonial",
-    href: "#Testimonial",
+    label: "Testimonials",
+    href: "#testimonials",
   },
   {
     label: "Faq",
-    href: "#Faq",
+    href: "#faq",
   },
 ];

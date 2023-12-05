@@ -5,6 +5,7 @@ import { StoreButton } from "../base/store-button";
 export const DownloadFromStore = () => {
   return (
     <Stack
+      id="download-from-store"
       as="section"
       overflow={{ base: "hidden", lg: "visible" }}
       position={"relative"}
