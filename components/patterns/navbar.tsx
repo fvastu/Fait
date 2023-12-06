@@ -45,7 +45,7 @@ export default function Navbar() {
           spacing={8}
           alignItems={"center"}
         >
-          <Link as="a" href="/">
+          <Link href="/">
             <Image minW={"100px"} w="100px" src="assets/logo.png"></Image>
           </Link>
           <HStack

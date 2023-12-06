@@ -1,26 +1,8 @@
 import { Box, Image, Stack, Text, VStack } from "@chakra-ui/react";
+import { showcaseData } from "../../shared/__mock__/showcase-data";
 import { AnimatedOnScroll } from "../base/animated-on-scroll";
 import { HorizontalPattern, ShapePattern } from "../base/assets-wrapper";
 import { Button } from "../base/button";
-
-const showcaseData = [
-  {
-    title: "Workout Plan that fits you",
-    subtitle:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
-    cta: "Get started",
-    imagePosition: "right",
-    image: "assets/images/screen1.png",
-  },
-  {
-    title: "Monitor your daily progress",
-    subtitle:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
-    cta: "Get started",
-    imagePosition: "left",
-    image: "assets/images/screen2.png",
-  },
-];
 
 type ShowcaseData = typeof showcaseData[0];
 
@@ -30,14 +12,14 @@ export const Showcase: React.FC = () => (
     as="section"
     maxW={"6xl"}
     w="full"
-    spacing={{ base: 50, lg: 100 }}
+    spacing={{ base: 48, lg: 100 }}
   >
     {showcaseData.map((data: ShowcaseData) => {
       return (
         <Stack
           key={data.title}
           as="article"
-          spacing={{ base: 100, lg: 50 }}
+          spacing={{ base: 96, lg: 50 }}
           justifyContent={"space-between"}
           textAlign={{ base: "center", md: "start" }}
           alignItems={{ base: "center", md: "start" }}
@@ -71,7 +53,7 @@ export const Showcase: React.FC = () => (
                 height="12vh"
                 objectFit={"cover"}
                 zIndex={-1}
-                visibility={{ base: "hidden", md: "visible" }}
+                display={{ base: "none", lg: "block" }}
               />
               <HorizontalPattern
                 left={250}
@@ -80,7 +62,7 @@ export const Showcase: React.FC = () => (
                 height="12vh"
                 objectFit={"cover"}
                 zIndex={-1}
-                visibility={{ base: "hidden", md: "visible" }}
+                display={{ base: "none", lg: "block" }}
               />
               <ShapePattern
                 right={data.imagePosition === "left" ? 200 : undefined}
@@ -90,7 +72,7 @@ export const Showcase: React.FC = () => (
                 objectFit={"cover"}
                 height="60vh"
                 zIndex={-2}
-                visibility={{ base: "hidden", md: "visible" }}
+                display={{ base: "none", lg: "block" }}
               />
               <Image
                 maxH={"600px"}

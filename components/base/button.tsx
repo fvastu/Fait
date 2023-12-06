@@ -23,6 +23,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       _hover: {
         bg: opaqueColor,
       },
+      color: "white",
       backgroundColor: accentColor,
       ...rest,
     };

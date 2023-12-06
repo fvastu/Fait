@@ -16,7 +16,7 @@ export const Card = forwardRef<HTMLElement, CardProps>(
   ({ children, isActive, ...rest }, ref) => {
     return (
       <ChakraCard
-        as="article"
+        as="div"
         width="full"
         padding="2rem 2rem"
         alignItems="center"

@@ -9,7 +9,7 @@ export const HeroFullImage = () => {
   return (
     <Box h="full" zIndex={0} position={"relative"}>
       <HorizontalPattern
-        visibility={{ base: "hidden", md: "visible" }}
+        display={{ base: "none", lg: "block" }}
         right={100}
         top={0}
         position={"absolute"}
@@ -24,7 +24,7 @@ export const HeroFullImage = () => {
         height="12vh"
         objectFit={"cover"}
         zIndex={-1}
-        visibility={{ base: "hidden", md: "visible" }}
+        display={{ base: "none", lg: "block" }}
       />
       <ShapePattern
         left={200}
@@ -32,7 +32,7 @@ export const HeroFullImage = () => {
         position={"absolute"}
         objectFit={"cover"}
         zIndex={-1}
-        visibility={{ base: "hidden", md: "visible" }}
+        display={{ base: "none", lg: "block" }}
       />
       <HeroImage
         boxSize={{ base: 900, lg: 700 }}

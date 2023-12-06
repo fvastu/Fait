@@ -8,6 +8,7 @@ import {
   forwardRef,
 } from "@chakra-ui/react";
 import { AiOutlineCheck } from "react-icons/ai";
+import { pricingCardsData } from "../../shared/__mock__/pricing-data";
 import { AnimatedOnScroll } from "../base/animated-on-scroll";
 import { Button } from "../base/button";
 import { Card } from "../base/card";
@@ -19,30 +20,6 @@ type CardData = {
   description: string;
   features: string[];
 };
-
-const CardsData: CardData[] = [
-  {
-    id: 0,
-    name: "Basic Plan",
-    price: "Free",
-    description: "Start with Fait Today",
-    features: ["Lorem ipsum dolor", "Lorem ipsum dolor", "Lorem ipsum dolor"],
-  },
-  {
-    id: 1,
-    name: "Annual Plan",
-    price: "$159/yr",
-    description: "80% off | Popular",
-    features: Array(4).fill("consectetur adipiscing elit"),
-  },
-  {
-    id: 2,
-    name: "Monthly Plan",
-    price: "$18/mo",
-    description: "or 216$ yearly",
-    features: Array(5).fill("Lorem ipsum dolor"),
-  },
-];
 
 const PricingCard = forwardRef(({ card, isActive, ...rest }, ref) => (
   <Card ref={ref} key={card.id} isActive={isActive} {...rest}>
@@ -83,7 +60,7 @@ export const Pricing = () => {
         textAlign="center"
         spacing={8}
       >
-        {CardsData.map((card, index) => (
+        {pricingCardsData.map((card: CardData, index) => (
           <PricingCard key={card.id} card={card} isActive={index === 1} />
         ))}
       </AnimatedOnScroll>

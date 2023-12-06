@@ -15,7 +15,7 @@ export default function Hero() {
       <VStack
         spacing={8}
         paddingLeft={{ base: 8, lg: 160 }}
-        paddingRight={{ base: 50, lg: 0 }}
+        paddingRight={{ base: 48, lg: 0 }}
         alignItems={"center"}
         w={{ base: "100%", lg: "50%" }}
       >
@@ -43,7 +43,7 @@ export default function Hero() {
         </HStack>
       </VStack>
       <Center overflow={"hidden"} w={{ base: "100%", lg: "50%" }} h="full">
-        <HeroFullImage></HeroFullImage>
+        <HeroFullImage />
       </Center>
     </Stack>
   );

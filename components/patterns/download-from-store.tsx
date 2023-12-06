@@ -13,24 +13,6 @@ export const DownloadFromStore = () => {
       justifyContent={"center"}
       alignItems={"center"}
     >
-      {/*
-      <ShapePattern
-        left={0}
-        zIndex={-1}
-        top="0"
-        w="40%"
-        overflow={"hidden"}
-        position={"absolute"}
-      ></ShapePattern>
-      {/*
-      <HorizontalPattern
-        right={0}
-        zIndex={-1}
-        top="0"
-        opacity={0.5}
-        w="20%"
-        position={"absolute"}
-      ></HorizontalPattern>*/}
       <VStack w="full" maxW={"2xl"}>
         <AnimatedOnScroll
           alignItems={"center"}

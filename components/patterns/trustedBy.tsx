@@ -1,8 +1,7 @@
 import { Box, Text, VStack } from "@chakra-ui/react";
+import { logosData } from "../../shared/__mock__/company-data";
 import { AnimatedOnScroll } from "../base/animated-on-scroll";
 import { CompanyLogo } from "../base/assets-wrapper";
-
-const logosData = Array(9).fill({ width: { base: "10rem", lg: "12rem" } });
 
 export const TrustedBy = () => {
   return (
