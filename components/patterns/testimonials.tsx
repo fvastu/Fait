@@ -1,6 +1,7 @@
 import { HStack, Image, Text, VStack } from "@chakra-ui/react";
 import { forwardRef } from "react";
 import { testimonialsData } from "../../shared/__mock__/testimonials-data";
+import { toRem } from "../../shared/utils";
 import { AnimatedOnScroll } from "../base/animated-on-scroll";
 import { StarIcon } from "../base/assets-wrapper";
 import { Card } from "../base/card";
@@ -27,13 +28,13 @@ const TestimonialCard: React.FC<TestimonialCardProps> = forwardRef<
         {Array(card.stars)
           .fill(0)
           .map((_, index) => (
-            <StarIcon height="15px" key={index} />
+            <StarIcon height={toRem(15)} key={index} />
           ))}
       </HStack>
       <Text fontWeight="medium">{card.description}</Text>
       <HStack spacing={4} w="full">
         <Image
-          w="40px"
+          w={toRem(40)}
           rounded="full"
           src={`assets/images/${card.image}`}
           alt={card.name}

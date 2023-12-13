@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { AiOutlineCheck } from "react-icons/ai";
 import { pricingCardsData } from "../../shared/__mock__/pricing-data";
+import { toRem } from "../../shared/utils";
 import { AnimatedOnScroll } from "../base/animated-on-scroll";
 import { Button } from "../base/button";
 import { Card } from "../base/card";
@@ -23,7 +24,7 @@ type CardData = {
 
 const PricingCard = forwardRef(({ card, isActive, ...rest }, ref) => (
   <Card ref={ref} key={card.id} isActive={isActive} {...rest}>
-    <VStack w="full">
+    <VStack h="full" w="full" position={"relative"}>
       <Box height="6rem">
         <Text fontSize="xl">{card.name}</Text>
         <Text fontSize="4xl" fontWeight="bold">
@@ -31,7 +32,7 @@ const PricingCard = forwardRef(({ card, isActive, ...rest }, ref) => (
         </Text>
         <Text fontSize="sm">{card.description}</Text>
       </Box>
-      <List height="15rem" spacing={4}>
+      <List marginY={toRem(70)} spacing={4}>
         {card.features.map((feature: any, index: number) => (
           <ListItem key={index}>
             <ListIcon as={AiOutlineCheck} color="white" />
@@ -39,7 +40,9 @@ const PricingCard = forwardRef(({ card, isActive, ...rest }, ref) => (
           </ListItem>
         ))}
       </List>
-      <Button w="full">Get started</Button>
+      <Button position={"absolute"} bottom={0} w="full">
+        Get started
+      </Button>
     </VStack>
   </Card>
 ));

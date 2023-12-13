@@ -15,11 +15,12 @@ import { IoMdClose } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { NAVIGATION_ITEMS } from "../../shared/constants";
 import { NavigationItem } from "../../shared/navigation-item";
+import { toRem } from "../../shared/utils";
 import { Button } from "../base/button";
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const filter = `blur(${isOpen ? toRem(20) : toRem(0)})`;
   return (
     <VStack w="full" direction={"column"} justifyContent={"center"}>
       <Flex
@@ -46,7 +47,11 @@ export default function Navbar() {
           alignItems={"center"}
         >
           <Link href="/">
-            <Image minW={"100px"} w="100px" src="assets/logo.png"></Image>
+            <Image
+              minW={toRem(100)}
+              w={toRem(100)}
+              src="assets/logo.png"
+            ></Image>
           </Link>
           <HStack
             w="full"
@@ -62,10 +67,7 @@ export default function Navbar() {
             ))}
           </HStack>
         </HStack>
-        <Flex
-          style={{ filter: `blur(${isOpen ? "20px" : "0px"})` }}
-          alignItems={"center"}
-        >
+        <Flex style={{ filter }} alignItems={"center"}>
           <Button>Get Started</Button>
         </Flex>
       </Flex>
@@ -80,17 +82,17 @@ export default function Navbar() {
           display={{ md: "none" }}
         >
           <Box
-            borderBottom={"1px"}
+            borderBottom={toRem(1)}
             borderColor={"grey"}
             backdropFilter="auto"
-            backdropBlur="30px"
-            h="500px"
+            backdropBlur={toRem(30)}
+            h={toRem(500)}
             as={"nav"}
           >
-            <SlideFade in={isOpen} offsetY="20px">
+            <SlideFade in={isOpen} offsetY={toRem(20)}>
               <VStack paddingX={8} spacing={8} alignItems={"start"}>
                 {NAVIGATION_ITEMS.map((link: NavigationItem) => (
-                  <Link as="a" key={link.label} href={link.href ?? ""}>
+                  <Link key={link.label} href={link.href ?? ""}>
                     <Box
                       _hover={{
                         color: "accent",

@@ -9,19 +9,18 @@ export default function Hero() {
       h={{ base: 1200, lg: 800 }}
       as="section"
       direction={{ base: "column", lg: "row" }}
-      paddingTop={100}
+      paddingTop={24}
       spacing={{ base: 8, lg: 24 }}
     >
       <VStack
         spacing={8}
         paddingLeft={{ base: 8, lg: 160 }}
-        paddingRight={{ base: 48, lg: 0 }}
         alignItems={"center"}
-        w={{ base: "100%", lg: "50%" }}
+        w={{ base: "full", lg: "50%" }}
       >
         <VStack
           alignItems={"start"}
-          w={"100%"}
+          w={"full"}
           fontWeight={"extrabold"}
           fontSize={"6xl"}
         >
@@ -42,7 +41,7 @@ export default function Hero() {
           <StoreButton type="Google" />
         </HStack>
       </VStack>
-      <Center overflow={"hidden"} w={{ base: "100%", lg: "50%" }} h="full">
+      <Center overflow={"hidden"} w={{ base: "full", lg: "50%" }} h="full">
         <HeroFullImage />
       </Center>
     </Stack>

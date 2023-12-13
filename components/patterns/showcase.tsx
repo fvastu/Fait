@@ -1,5 +1,6 @@
 import { Box, Image, Stack, Text, VStack } from "@chakra-ui/react";
 import { showcaseData } from "../../shared/__mock__/showcase-data";
+import { toRem } from "../../shared/utils";
 import { AnimatedOnScroll } from "../base/animated-on-scroll";
 import { HorizontalPattern, ShapePattern } from "../base/assets-wrapper";
 import { Button } from "../base/button";
@@ -12,14 +13,13 @@ export const Showcase: React.FC = () => (
     as="section"
     maxW={"6xl"}
     w="full"
-    spacing={{ base: 48, lg: 100 }}
+    spacing={{ base: 48, lg: 96 }}
   >
     {showcaseData.map((data: ShowcaseData) => {
       return (
         <Stack
           key={data.title}
           as="article"
-          spacing={{ base: 96, lg: 50 }}
           justifyContent={"space-between"}
           textAlign={{ base: "center", md: "start" }}
           alignItems={{ base: "center", md: "start" }}
@@ -30,7 +30,7 @@ export const Showcase: React.FC = () => (
           <AnimatedOnScroll
             delay={0}
             order={data.imagePosition === "left" ? 1 : 0}
-            w={{ base: "100%", lg: "50%" }}
+            w={{ base: "full", lg: "50%" }}
             h="full"
             justifyContent={{ base: "center", md: "start" }}
             alignItems={{ base: "center", md: "start" }}
@@ -75,7 +75,7 @@ export const Showcase: React.FC = () => (
                 display={{ base: "none", lg: "block" }}
               />
               <Image
-                maxH={"600px"}
+                maxH={toRem(600)}
                 h="full"
                 alt={"showcase"}
                 src={data.image}

@@ -2,6 +2,7 @@ import { Link } from "@chakra-ui/react";
 import React from "react";
 import { readColorFromTheme } from "../../shared/read-from-theme";
 import { AppleAppStore, GooglePlayStore } from "./assets-wrapper";
+import { toRem } from "../../shared/utils";
 
 interface StoreButtonProps {
   type: "Google" | "Apple";
@@ -18,12 +19,12 @@ export const StoreButton: React.FC<StoreButtonProps> = ({ type }) => {
     <Link
       href={storeUrl}
       background={"transparent"}
-      w="160px"
+      w={toRem(160)}
       padding={"0.5rem 1rem"}
       borderColor={"white"}
       borderStyle={"solid"}
-      borderWidth={"1px"}
-      borderRadius={"8px"}
+      borderWidth={toRem(1)}
+      borderRadius={toRem(8)}
       display="flex"
       alignItems="center"
       justifyContent="center"
