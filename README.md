@@ -1,4 +1,4 @@
-# Welcome to the NextJS TypeScript + ESLint + Prettier + Husky + Chakra UI + Tailwind CSS Setup!
+# Fait - Landing Page built on ChakraUI
 
 [![Next.js](https://img.shields.io/badge/Next.js-v14.0.1-blue)](https://nextjs.org/)
 [![Chakra UI](https://img.shields.io/badge/Chakra_UI-v2.4.1-blue)](https://chakra-ui.com/)
@@ -6,24 +6,11 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-v4.9.3-blue)](https://www.typescriptlang.org/)
 [![Husky](https://img.shields.io/badge/Husky-v8.0.0-green)](https://github.com/typicode/husky)
 
+![ezgif-3-4d497b8af6](https://github.com/fvastu/Fait/assets/43243596/8a0c7da4-1763-44a6-aad6-230acafc165c)
+
 ## About
 
-Are you looking to kickstart your web development journey with Next.js and TypeScript? Look no further! The fait is here to make your life easier.
-
-### 🚀 Supercharge Your Development
-
-We've included a bunch of powerful tools to boost your productivity:
-
-- **Chakra UI:** Create stunning and responsive user interfaces effortlessly.
-- **Tailwind CSS:** Streamline your styling with utility-first CSS.
-- **ESLint:** Catch and fix coding issues as you go.
-- **ESLint Config Google:** Stay in line with Google's coding standards.
-- **Prettier:** Automatically format your code to keep it clean and organized.
-- **Husky:** Pre-commit hooks for a seamless development workflow.
-
-### ⚡ Jumpstart Your Project
-
-With this template, you can jump straight into your side project without worrying about complex setup. It's your passport to hassle-free development.
+The Fait landing page is made with Chakra UI and Tailwind CSS, making web development a breeze. It's a plug-and-play template, letting you easily tweak assets and content in just a few minutes for a stress-free experience
 
 ## Installation
 
