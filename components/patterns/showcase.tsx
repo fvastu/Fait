@@ -7,7 +7,7 @@ import { Button } from "../base/button";
 
 type ShowcaseData = typeof showcaseData[0];
 
-export const Showcase: React.FC = () => (
+export const Showcase = () => (
   <VStack
     id="showcase"
     as="section"

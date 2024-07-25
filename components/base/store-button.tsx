@@ -4,16 +4,19 @@ import { readColorFromTheme } from "../../shared/read-from-theme";
 import { AppleAppStore, GooglePlayStore } from "./assets-wrapper";
 import { toRem } from "../../shared/utils";
 
-interface StoreButtonProps {
-  type: "Google" | "Apple";
+const GOOGLE_PLAY_STORE_URL = "https://play.google.com/store";
+const APPLE_STORE_URL = "https://www.apple.com/app-store/";
+
+export interface StoreButtonProps {
+  storeType: "Google" | "Apple";
 }
 
-export const StoreButton: React.FC<StoreButtonProps> = ({ type }) => {
+export const StoreButton = ({ storeType }: StoreButtonProps) => {
   const accentColor = readColorFromTheme("accent").default;
   const storeUrl =
-    type === "Google"
-      ? "https://play.google.com/store"
-      : "https://www.apple.com/app-store/";
+    storeType === "Google"
+      ? GOOGLE_PLAY_STORE_URL
+      : APPLE_STORE_URL
 
   return (
     <Link
@@ -32,7 +35,7 @@ export const StoreButton: React.FC<StoreButtonProps> = ({ type }) => {
         bg: accentColor,
       }}
     >
-      {type === "Google" ? (
+      {storeType === "Google" ? (
         <GooglePlayStore h="full" />
       ) : (
         <AppleAppStore h="full" />

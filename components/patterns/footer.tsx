@@ -10,6 +10,7 @@ import {
 import { ReactNode } from "react";
 import { AnimatedOnScroll } from "../base/animated-on-scroll";
 import { Button } from "../base/button";
+import { followUsLinks, companyLinks, supportLinks } from "../../shared/__mock__/footer-data";
 
 const ListHeader = ({ children }: { children: ReactNode }) => {
   return (
@@ -58,58 +59,28 @@ export default function Footer() {
           <Stack align={"flex-start"}>
             <ListHeader>Follow us</ListHeader>
             <Stack align={"flex-start"}>
-              <Box as="a" href={"#about"}>
-                About us
-              </Box>
-              <Box as="a" href={"#blog"}>
-                Blog
-              </Box>
-              <Box as="a" href={"#contact"}>
-                Contact us
-              </Box>
-              <Box as="a" href={"#pricing"}>
-                Pricing
-              </Box>
-              <Box as="a" href={"#testimonials"}>
-                Testimonials
-              </Box>
+              {followUsLinks.map(({ href, text }) => (
+                <Box as="a" key={text} href={href}>
+                  {text}
+                </Box>
+              ))}
             </Stack>
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>Company</ListHeader>
-            <Box as="a" href={"#"}>
-              About us
-            </Box>
-            <Box as="a" href={"#"}>
-              Blog
-            </Box>
-            <Box as="a" href={"#"}>
-              Contact us
-            </Box>
-            <Box as="a" href={"#"}>
-              Pricing
-            </Box>
-            <Box as="a" href={"#"}>
-              Testimonials
-            </Box>
+            {companyLinks.map(({ href, text }) => (
+              <Box as="a" key={text} href={href}>
+                {text}
+              </Box>
+            ))}
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>Support</ListHeader>
-            <Box as="a" href={"#"}>
-              Help Center
-            </Box>
-            <Box as="a" href={"#"}>
-              Terms of Service
-            </Box>
-            <Box as="a" href={"#"}>
-              Legal
-            </Box>
-            <Box as="a" href={"#"}>
-              Privacy Policy
-            </Box>
-            <Box as="a" href={"#"}>
-              Satus
-            </Box>
+            {supportLinks.map(({ href, text }) => (
+              <Box as="a" key={text} href={href}>
+                {text}
+              </Box>
+            ))}
           </Stack>
         </SimpleGrid>
       </AnimatedOnScroll>

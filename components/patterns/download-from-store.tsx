@@ -1,6 +1,6 @@
 import { HStack, Stack, Text, VStack } from "@chakra-ui/react";
 import { AnimatedOnScroll } from "../base/animated-on-scroll";
-import { StoreButton } from "../base/store-button";
+import { StoreButton, StoreButtonProps } from "../base/store-button";
 
 export const DownloadFromStore = () => {
   return (
@@ -32,8 +32,9 @@ export const DownloadFromStore = () => {
             journey begins here!
           </Text>
           <HStack>
-            <StoreButton type="Apple" />
-            <StoreButton type="Google" />
+            {["Apple", "Google"].map((storeType) => (
+              <StoreButton key={storeType} storeType={storeType as StoreButtonProps["storeType"]} />
+            ))}
           </HStack>
         </AnimatedOnScroll>
       </VStack>

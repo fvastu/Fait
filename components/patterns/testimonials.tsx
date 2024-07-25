@@ -18,7 +18,7 @@ type TestimonialCardProps = {
   card: TestimonialData;
 };
 
-const TestimonialCard: React.FC<TestimonialCardProps> = forwardRef<
+const TestimonialCard = forwardRef<
   HTMLDivElement,
   TestimonialCardProps
 >(({ card }, ref) => (
@@ -45,7 +45,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = forwardRef<
   </Card>
 ));
 
-export const Testimonials: React.FC = () => (
+export const Testimonials  = () => (
   <VStack id="testimonials" as="section" spacing={16} w="full" maxW={"6xl"}>
     <VStack>
       <Text fontSize="4xl">Customer testimonials</Text>

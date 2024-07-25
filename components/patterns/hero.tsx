@@ -1,5 +1,5 @@
 import { Center, HStack, Stack, Text, VStack } from "@chakra-ui/react";
-import { StoreButton } from "../base/store-button";
+import { StoreButton, StoreButtonProps } from "../base/store-button";
 import { HeroFullImage } from "./hero-full-image";
 
 export default function Hero() {
@@ -13,7 +13,7 @@ export default function Hero() {
       spacing={{ base: 8, lg: 24 }}
     >
       <VStack
-        spacing={8}
+        spacing={6}
         paddingLeft={{ base: 8, lg: 160 }}
         alignItems={"center"}
         w={{ base: "full", lg: "50%" }}
@@ -22,7 +22,7 @@ export default function Hero() {
           alignItems={"start"}
           w={"full"}
           fontWeight={"extrabold"}
-          fontSize={"6xl"}
+          fontSize={"5xl"}
         >
           <Text>Workout Anytime.</Text>
           <Text>Anywhere with</Text>
@@ -30,15 +30,16 @@ export default function Hero() {
             Fait
           </Text>
         </VStack>
-        <Text fontWeight={"thin"} fontSize={"l"}>
+        <Text fontWeight={"thin"} fontSize={"sm"}>
           Fait is one of the top fitness apps for iPhone, Android, or web users.
           Our workout plans are designed to help you reach your fitness goals
           faster and simpler. Take control of their health — anytime, anywhere,
           any age, any fitness level.
         </Text>
         <HStack alignItems={"start"} w="full">
-          <StoreButton type="Apple" />
-          <StoreButton type="Google" />
+            {["Apple", "Google"].map((storeType) => (
+              <StoreButton key={storeType} storeType={storeType as StoreButtonProps["storeType"]} />
+            ))}
         </HStack>
       </VStack>
       <Center overflow={"hidden"} w={{ base: "full", lg: "50%" }} h="full">

@@ -6,7 +6,7 @@ import { Card } from "../base/card";
 
 type FeatureCardProps = typeof featureData[0];
 
-const FeatureCard: React.FC<FeatureCardProps> = forwardRef<
+const FeatureCard = forwardRef<
   HTMLDivElement,
   FeatureCardProps
 >(({ icon, title, content, ...rest }, ref) => (
@@ -21,7 +21,7 @@ const FeatureCard: React.FC<FeatureCardProps> = forwardRef<
   </Card>
 ));
 
-export const Features: React.FC = () => (
+export const Features = () => (
   <VStack
     id="features"
     as="section"

@@ -16,7 +16,7 @@ interface FaqItemProps {
   answer: string;
 }
 
-const FaqItem: React.FC<FaqItemProps> = ({ question, answer }) => {
+const FaqItem = ({ question, answer }: FaqItemProps) => {
   return (
     <AccordionItem>
       <h2>
@@ -32,7 +32,7 @@ const FaqItem: React.FC<FaqItemProps> = ({ question, answer }) => {
   );
 };
 
-const Faq: React.FC = () => {
+const Faq = () => {
   const title = "Top FAQs";
   const description =
     "Explore our frequently asked questions to find answers to common queries about our app and services.";

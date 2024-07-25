@@ -47,7 +47,7 @@ export default function Navbar() {
           alignItems={"center"}
         >
           <Link href="/">
-            <Image
+            <Image alt="fait logo"
               minW={toRem(100)}
               w={toRem(100)}
               src="assets/logo.png"

@@ -4,6 +4,9 @@ import {
 } from "@fvastu/animated-on-scroll-stack";
 import { forwardRef } from "react";
 
+const DEFAULT_DELAY = 200;
+const DEFAULT_INTEVAL = 500;
+
 type AnimatedOnScrollProps = {
   children?: React.ReactNode;
   className?: string;
@@ -16,9 +19,9 @@ export const AnimatedOnScroll = forwardRef<
   return (
     <AnimatedOnScrollStack
       origin="bottom"
-      delay={delay ?? 200}
+      delay={delay ?? DEFAULT_DELAY}
       className={className}
-      interval={interval ?? 500}
+      interval={interval ?? DEFAULT_INTEVAL}
       {...rest}
     >
       {children}
